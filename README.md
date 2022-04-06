@@ -1,5 +1,6 @@
 ## React의 장점
 - Virtual DOM / JSX / Flux패턴 / Functional Programming
+- 바닐라 JS는 변경으로 인해 Element를 다시 그리지만 React는 변경된 부분만 다시 그림
 
 ## DOM 과 Virtual DOM
 - DOM은 HTML과 스크립팅 언어(Javascript)를 서로 이어주는 역할
