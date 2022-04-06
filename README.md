@@ -22,3 +22,6 @@
 
  ## CDN (Content Delivery Network)
  - 웹에서 사용되는 다양한 컨텐츠(리소스)를 저장하여 제공하는 시스템
+
+## useState
+- 상태값을 관리해주는 훅
