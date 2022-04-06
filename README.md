@@ -25,3 +25,9 @@
 
 ## useState
 - 상태값을 관리해주는 훅
+- setState의 첫번째 인자는 이전 값이다 (prev)
+
+## useEffect
+- 컴포넌트가 화면에 렌더링된 이후에 비동기로 처리되어야 하는 부수적인 효과 Side Effect
+- Effect Hook을 사용하면 함수 컴포넌트에서 side effect를 수행할 수 있음
+- render가 끝난후 적용함
