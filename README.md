@@ -1,4 +1,4 @@
-# 
+# React
 
 ## React의 장점
 - Virtual DOM / JSX / Flux패턴 / Functional Programming
