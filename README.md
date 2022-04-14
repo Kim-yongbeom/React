@@ -4,10 +4,12 @@
 - Virtual DOM / JSX / Flux패턴 / Functional Programming
 - 바닐라 JS는 변경으로 인해 Element를 다시 그리지만 React는 변경된 부분만 다시 그림
 
-## DOM 과 Virtual DOM
+## DOM
 - DOM은 HTML과 스크립팅 언어(Javascript)를 서로 이어주는 역할
 - 웹브라우저 단에서 DOM 변화가 일어나면 웹브라우저가 CSS를 다시 연산하고 레이아웃을 구성 
 - 페이지를 리렌더링이 일어 나는 이 과정에서 시간이 허비됨.
+
+## Virtual DOM
 - 데이터가 업데이트 되면, 전체 UI를 Virtual DOM에 리렌더링함
 - 이전 Virtual DOM에 있던 내용과 현재의 내용을 비교함 (가상 돔 끼리 비교)
 - 바뀐 부분만 실제 DOM에 적용이 됨
