@@ -1,7 +1,9 @@
 // import logo from './logo.svg';
 import './App.css';
+import UncontrolledComponent from './components/2-10.Form/UncontrolledComponent'
+import ControlledComponent from './components/2-10.Form/ControlledComponent';
 // import Event from './components/2-7.Event/Event'
-import List from './components/2-9.List/List'
+// import List from './components/2-9.List/List'
 // import Condition from './components/2-8.ConditionalRendering/Condition';
 // import Composition from './components/2-4.Props/Composition';
 // import ClassComponent from './components/2-5.State/ClassComponent';
@@ -11,7 +13,9 @@ import List from './components/2-9.List/List'
 function App() {
   return (
     <div className="App">
-      {<List/>}
+      <UncontrolledComponent/>
+      <ControlledComponent/>
+      {/* {<List/>} */}
       {/* <Condition/> */}
       {/* <Event/> */}
       {/* <ClassComponent2 /> */}
