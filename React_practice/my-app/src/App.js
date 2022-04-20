@@ -1,9 +1,10 @@
 // import logo from './logo.svg';
 import './App.css';
+import WelcomeDialog from './components/3-5.Composition/WelcomeDialog';
 // import UncontrolledComponent from './components/2-10.Form/UncontrolledComponent'
 // import ControlledComponent from './components/2-10.Form/ControlledComponent';
-import State from './components/3-3.Hooks/State';
-import Reducer from './components/3-3.Hooks/Reducer'
+// import State from './components/3-3.Hooks/State';
+// import Reducer from './components/3-3.Hooks/Reducer'
 // import Event from './components/2-7.Event/Event'
 // import List from './components/2-9.List/List'
 // import Condition from './components/2-8.ConditionalRendering/Condition';
@@ -15,8 +16,9 @@ import Reducer from './components/3-3.Hooks/Reducer'
 function App() {
   return (
     <div className="App">
-      <State/>
-      <Reducer/>
+      <WelcomeDialog/>
+      {/* <State/> */}
+      {/* <Reducer/> */}
       {/* <UncontrolledComponent/> */}
       {/* <ControlledComponent/> */}
       {/* {<List/>} */}
