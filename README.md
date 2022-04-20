@@ -59,6 +59,12 @@
 ## useRef
 - 컴포넌트 상태 안에서 라이프사이클과 독립적으로 사용하면서 리액트와 최적화된 저장공간 제공
 
+## useLayoutEffect
+- useEffect와 유사 모든 DOM 변경 후 브라우저가 화면을 그리기 이전 시점에 동기적으로 수행됨
+
+## useReducer
+- useState 대체 state/reducer/action
+
 ## promise
 - 자바스크립트 비동기 처리에 사용되는 객체이다.
 
