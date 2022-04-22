@@ -65,6 +65,19 @@
 ## useReducer
 - useState 대체 state/reducer/action
 
+## Memoization
+- 기존에 수행한 연산의 결과값을 어딘가에 저장해두고 동일한 입력이 들어오면 재활용하는 프로그래밍 기법
+- 중복 연산을 피할 수 있기 때문에 메모리를 조금 더 쓰더라도 애플리케이션의 성능 최적화 가능
+
+## useMemo
+- Memoization된 값을 반환함, dependency array가 변경될때만 다시 계산
+- useMemo로 전달된 함수는 렌더링 중에 실행됨
+- 통상적으로 렌더링 중에는 하지 않는 것을 useMemo내에서 하면 안됨 (ex) 사이드 이펙트는 useEffect에서만
+
+## useCallback
+- 특정한 함수를 Memoization 할 때 사용
+- useMemo는 특정한 값을 Memoization 할 때 사용
+
 ## promise
 - 자바스크립트 비동기 처리에 사용되는 객체이다.
 
