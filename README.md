@@ -74,6 +74,10 @@
 - useMemo로 전달된 함수는 렌더링 중에 실행됨
 - 통상적으로 렌더링 중에는 하지 않는 것을 useMemo내에서 하면 안됨 (ex) 사이드 이펙트는 useEffect에서만
 
+## useCallback
+- 특정한 함수를 Memoization 할 때 사용
+- useMemo는 특정한 값을 Memoization 할 때 사용
+
 ## promise
 - 자바스크립트 비동기 처리에 사용되는 객체이다.
 
