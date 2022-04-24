@@ -78,6 +78,12 @@
 - 특정한 함수를 Memoization 할 때 사용
 - useMemo는 특정한 값을 Memoization 할 때 사용
 
+## Context
+- props drilling의 한계 해소
+- Context를 사용하면 재사용하기 어려움
+- createContext/ Provider/ Consumer
+- useContext는 Consumer 
+
 ## promise
 - 자바스크립트 비동기 처리에 사용되는 객체이다.
 
