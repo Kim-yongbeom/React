@@ -7,8 +7,7 @@ dayjs.locale("ko");
 dayjs.extend(utc)
 dayjs.extend(timezone)
 
-// npm install moment
-// npm install moment-timezone
+// npm install dayjs
 export default function DayjsExample() {
 
   const birthDayRef = useRef(null)
