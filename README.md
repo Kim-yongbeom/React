@@ -90,3 +90,19 @@
 ## fetch
 - 자바스크립트를 사용하면 필요할 때 서버에 네트워크 요청을 보내고 새로운 정보를 받아오는 일을 할 수 있다.
 - promise를 기반으로 되어있기 때문에 상태에 따른 로직을 추가하고 처리하는데 최적화 되어있다.
+
+## React time 라이브러리
+- dayjs(가벼움)
+- date-fns(함수형, tree-shaking)
+- moment(안쓰는게 좋다)
+
+## CSS의 문제점 (React를 쓰면서)
+- Global Namespace: 글로벌 변수를 지양해야하는 JS와 대치
+- Dependencies: css간의 의존 관리
+- Dead Code Elimination: 안쓰는 css 인지 어려움
+- Minification: 클래스 이름 최소화
+- Sharing Constants: JS의 코드와 값을 공유하고 싶음
+- Non-deterministic Resolution: css 파일 로드 타이밍 이슈
+- Isolation: 격리
+
+### 위 문제를 해결하기 위해 styled-component 사용
