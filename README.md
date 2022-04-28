@@ -95,3 +95,12 @@
 - dayjs(가벼움)
 - date-fns(함수형, tree-shaking)
 - moment(안쓰는게 좋다)
+
+## CSS의 문제점 (React를 쓰면서)
+- Global Namespace: 글로벌 변수를 지양해야하는 JS와 대치
+- Dependencies: css간의 의존 관리
+- Dead Code Elimination: 안쓰는 css 인지 어려움
+- Minification: 클래스 이름 최소화
+- Sharing Constants: JS의 코드와 값을 공유하고 싶음
+- Non-deterministic Resolution: css 파일 로드 타이밍 이슈
+- Isolation: 격리
