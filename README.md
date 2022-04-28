@@ -93,5 +93,5 @@
 
 ## React time 라이브러리
 - dayjs(가벼움)
-- date-fns(tree-shaking)
+- date-fns(함수형, tree-shaking)
 - moment(안쓰는게 좋다)
