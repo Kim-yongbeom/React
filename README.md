@@ -92,6 +92,6 @@
 - promise를 기반으로 되어있기 때문에 상태에 따른 로직을 추가하고 처리하는데 최적화 되어있다.
 
 ## React time 라이브러리
-- dayjs
-- date-fns
+- dayjs(가벼움)
+- date-fns(tree-shaking)
 - moment(안쓰는게 좋다)
