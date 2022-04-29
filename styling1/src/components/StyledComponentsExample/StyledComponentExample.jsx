@@ -1,9 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-// npm install --save styled-components
-export default function StyledComponentExample() {
-  // Create a Title component that'll render an <h1> tag with some styles
+// Create a Title component that'll render an <h1> tag with some styles
   const Title = styled.h1`
     font-size: 1.5em;
     text-align: center;
@@ -37,9 +35,48 @@ export default function StyledComponentExample() {
 
   const ReverseButton = props => <Button {...props} children={props.children.split('').reverse()}/>
 
+
+const Thing = styled.div.attrs((/* props */) => ({ tabIndex: 0 }))`
+  color: blue;
+
+  &:hover {
+    color: red; // <Thing> when hovered
+  }
+
+  // &(Thing)에서 &(Thing)까지 다 적용
+  & ~ & {
+    background: tomato; // <Thing> as a sibling of <Thing>, but maybe not directly next to it
+  }
+
+  // 바로 옆에있는것만 적용
+  & + & {
+    background: lime; // <Thing> next to <Thing>
+  }
+
+  &.something {
+    background: orange; // <Thing> tagged with an additional CSS class ".something"
+  }
+
+  .something-else & {
+    border: 1px solid; // <Thing> inside another element labeled ".something-else"
+  }
+`
+
+// npm install --save styled-components
+export default function StyledComponentExample() {
   // Use Title and Wrapper like any other React component – except they're styled!
   return(
     <>
+      <>
+        <Thing>Hello world!</Thing>
+        <Thing>How ya doing?</Thing>
+        <Thing className="something">The sun is shining...</Thing>
+        <div>Pretty nice day today.</div>
+        <Thing>Don't you think?</Thing>
+        <div className="something-else">
+          <Thing>Splendid.</Thing>
+        </div>
+      </>
       <Wrapper>
         <Title>
           Hello World!
