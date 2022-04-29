@@ -1,39 +1,39 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, {useState} from 'react'
+import styled, {keyframes, ThemeProvider} from 'styled-components'
 
 // Create a Title component that'll render an <h1> tag with some styles
-  const Title = styled.h1`
-    font-size: 1.5em;
-    text-align: center;
-    color: palevioletred;
-  `;
+  // const Title = styled.h1`
+  //   font-size: 1.5em;
+  //   text-align: center;
+  //   color: palevioletred;
+  // `;
 
-  // Create a Wrapper component that'll render a <section> tag with some styles
-  const Wrapper = styled.section`
-    padding: 4em;
-    background: papayawhip;
-  `;
+  // // Create a Wrapper component that'll render a <section> tag with some styles
+  // const Wrapper = styled.section`
+  //   padding: 4em;
+  //   background: papayawhip;
+  // `;
 
-  const Button = styled.button`
-    /* Adapt the colors based on primary prop */
-    background: ${props => props.primary ? "palevioletred" : "white"};
-    color: ${props => props.primary ? "white" : "palevioletred"};
+  // const Button = styled.button`
+  //   /* Adapt the colors based on primary prop */
+  //   background: ${props => props.primary ? "palevioletred" : "white"};
+  //   color: ${props => props.primary ? "white" : "palevioletred"};
 
-    font-size: 1em;
-    margin: 1em;
-    padding: 0.25em 1em;
-    border: 2px solid palevioletred;
-    border-radius: 3px;
-  `;
+  //   font-size: 1em;
+  //   margin: 1em;
+  //   padding: 0.25em 1em;
+  //   border: 2px solid palevioletred;
+  //   border-radius: 3px;
+  // `;
 
-  // A new component based on Button, but with some override styles
-  // 위에 있던 Button component를 styled안에 넣어서 꾸미기 확장가능
-  const TomatoButton = styled(Button)`
-    color: tomato;
-    border-color: tomato;
-  `
+  // // A new component based on Button, but with some override styles
+  // // 위에 있던 Button component를 styled안에 넣어서 꾸미기 확장가능
+  // const TomatoButton = styled(Button)`
+  //   color: tomato;
+  //   border-color: tomato;
+  // `
 
-  const ReverseButton = props => <Button {...props} children={props.children.split('').reverse()}/>
+  // const ReverseButton = props => <Button {...props} children={props.children.split('').reverse()}/>
 
 
 const Thing = styled.div.attrs((/* props */) => ({ tabIndex: 0 }))`
@@ -62,11 +62,82 @@ const Thing = styled.div.attrs((/* props */) => ({ tabIndex: 0 }))`
   }
 `
 
+const Input = styled.input.attrs(props => ({
+  type: 'text',
+  size: props.size || 'lem',
+}))`
+  border: 2px solid palevioletred;
+  margin: ${props => props.size};
+  padding: ${props => props.size}
+`
+
+const PasswordInput = styled(Input).attrs({
+  type: 'password'
+})`
+  border: 2px solid aqua;
+`
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`
+
+const Rotate = styled.div`
+  display: inline-block;
+  animation: ${rotate} 2s linear infinite;
+  padding: 2rem 1rem;
+  font-size: 1.2rem
+`
+
+const Button = styled.button`
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+
+  color: ${props => props.theme.color};
+  border: 2px solid ${props => props.theme.borderColor};
+`
+
+const defaultTheme = {
+  color: 'green',
+  borderColor: 'green'
+}
+
+const redTheme = {
+  color: 'red',
+  borderColor: 'red'
+}
+
 // npm install --save styled-components
 export default function StyledComponentExample() {
+  const [theme, setTheme] = useState(defaultTheme);
+
   // Use Title and Wrapper like any other React component – except they're styled!
-  return(
+  return (
     <>
+      <>
+        <Rotate>&lt; a &gt;</Rotate>
+        <div>
+          <button onClick={()=>setTheme(redTheme)}>red</button>
+          <button onClick={()=>setTheme(defaultTheme)}>green</button>
+          {/* ThemeProvider의 역할은 자식 컴포넌트에게 컴포넌트를 모두 전달해줌 */}
+          <ThemeProvider theme={theme}>
+            {/* 버튼에 알아서 theme값이 들어감 */}
+            <Button>Normal</Button>
+            <Button>Themed</Button>
+          </ThemeProvider>
+        </div>
+      </>
+      <>
+        <Input placeholder='A bigger text input' size='2em' />
+        <br />
+        <PasswordInput placeholder='A bigger password input' size='2em' />
+      </>
       <>
         <Thing>Hello world!</Thing>
         <Thing>How ya doing?</Thing>
@@ -77,7 +148,7 @@ export default function StyledComponentExample() {
           <Thing>Splendid.</Thing>
         </div>
       </>
-      <Wrapper>
+      {/* <Wrapper>
         <Title>
           Hello World!
         </Title>
@@ -94,7 +165,7 @@ export default function StyledComponentExample() {
       </TomatoButton>
       <br/>
       {/* as를 사용해 다양하게 받을수 있음(확장된 태그) */}
-      <Button as={ReverseButton}>Custom Button with Normal Button styles</Button>
-  </>
-  );
-}
+      {/* <Button as={ReverseButton}>Custom Button with Normal Button styles</Button> */}
+    </>
+  )
+};
