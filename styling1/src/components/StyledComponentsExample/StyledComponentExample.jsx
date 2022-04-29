@@ -35,6 +35,8 @@ export default function StyledComponentExample() {
     border-color: tomato;
   `
 
+  const ReverseButton = props => <Button {...props} children={props.children.split('').reverse()}/>
+
   // Use Title and Wrapper like any other React component – except they're styled!
   return(
     <>
@@ -46,6 +48,16 @@ export default function StyledComponentExample() {
       <Button onClick={()=>alert('normal')}>Normal</Button>
       <Button onClick={()=>alert('primary')} primary>Primary</Button>
       <TomatoButton>Tomato Button</TomatoButton>
+      <br/>
+      <Button as='a' href='#'>
+        Link with Tomato Button styles
+      </Button>
+      <TomatoButton as='a' href='#'>
+        Link with Tomato Button styles
+      </TomatoButton>
+      <br/>
+      {/* as를 사용해 다양하게 받을수 있음(확장된 태그) */}
+      <Button as={ReverseButton}>Custom Button with Normal Button styles</Button>
   </>
   );
 }
