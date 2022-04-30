@@ -2,7 +2,7 @@
 // import React from 'react'
 
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
+import { css, Global, keyframes } from "@emotion/react";
 
 // emotion을 styled-component 처럼 사용가능
 import styled from "@emotion/styled";
@@ -75,9 +75,49 @@ const base = css`
   color: turquoise;
 `;
 
+const bounce = keyframes`
+    from, 20%, 53%, 80%, to{
+      transform: translate3d(0,0,0);
+    }
+    40%, 43% {
+      transform: translate3d(0, -30px, 0);
+    }
+    70%{
+      transform: translate3d(0, -15px, 0);
+    }
+    90%{
+      transform: translate3d(0, -4px, 0);
+    }
+`;
+
 export default function EmotionExample() {
   return (
     <>
+      <Global
+        // Global태그는 styles를 css로 쓰면 안됨
+        styles={css`
+          p {
+            color: hotpink !important;
+          }
+        `}
+      />
+      <div
+        css={css`
+          animation: ${bounce} 1s ease infinite;
+        `}
+      >
+        some bouncing text!
+      </div>
+      <p
+        css={css`
+          font-size: 30px;
+          @media (min-width: 600px) {
+            font-size: 50px;
+          }
+        `}
+      >
+        Some text!
+      </p>
       <div
         // 스트링 형태
         css={css`
