@@ -105,4 +105,7 @@
 - Non-deterministic Resolution: css 파일 로드 타이밍 이슈
 - Isolation: 격리
 
-### 위 문제를 해결하기 위해 styled-component 사용
+## 위 문제를 해결하기 위해 style 라이브러리 사용
+- styled-component
+- emotion
+- sass
