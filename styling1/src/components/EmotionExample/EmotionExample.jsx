@@ -4,7 +4,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-// styled-component 처럼 사용가능
+// emotion을 styled-component 처럼 사용가능
 import styled from "@emotion/styled";
 
 const Button = styled.button`
