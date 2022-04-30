@@ -107,5 +107,5 @@
 
 ## 위 문제를 해결하기 위해 style 라이브러리 사용
 - styled-component
-- emotion
+- emotion(styled-component 사용가능)
 - sass
