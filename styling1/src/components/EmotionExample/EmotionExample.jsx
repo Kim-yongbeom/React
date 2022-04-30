@@ -42,7 +42,7 @@ const AnotherComponet = () => (
 
 const P = (props) => (
   <p
-    // 객체 형태
+    // 객체 형태(return 부분에 스트링 형태로 작성한 코드 있음)
     css={{
       margin: 0,
       fontSize: 12,
