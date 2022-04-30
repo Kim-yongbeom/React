@@ -1,10 +1,12 @@
-import './App.css';
-import StyledComponentExample from './components/StyledComponentsExample/StyledComponentExample'
+import "./App.css";
+import EmotionExample from "./components/EmotionExample/EmotionExample";
+// import StyledComponentExample from './components/StyledComponentsExample/StyledComponentExample'
 
 function App() {
   return (
     <div className="App">
-      <StyledComponentExample/>
+      <EmotionExample />
+      {/* <StyledComponentExample/> */}
     </div>
   );
 }
