@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import styled, {keyframes, ThemeProvider} from 'styled-components'
+import styled, {keyframes, ThemeProvider, createGlobalStyle} from 'styled-components'
 
 // Create a Title component that'll render an <h1> tag with some styles
   // const Title = styled.h1`
@@ -113,6 +113,12 @@ const redTheme = {
   borderColor: 'red'
 }
 
+const GlobalStyle = createGlobalStyle`
+  button {
+    background-color: pink;
+  }
+`
+
 // npm install --save styled-components
 export default function StyledComponentExample() {
   const [theme, setTheme] = useState(defaultTheme);
@@ -123,6 +129,8 @@ export default function StyledComponentExample() {
       <>
         <Rotate>&lt; a &gt;</Rotate>
         <div>
+          {/* GlobalStlye에서 button태그를 설정해줬기 때문에 html안에 있는 button태그들 모두 적용시킴 */}
+          <GlobalStyle/>
           <button onClick={()=>setTheme(redTheme)}>red</button>
           <button onClick={()=>setTheme(defaultTheme)}>green</button>
           {/* ThemeProvider의 역할은 자식 컴포넌트에게 컴포넌트를 모두 전달해줌 */}
