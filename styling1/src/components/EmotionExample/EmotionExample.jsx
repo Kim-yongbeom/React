@@ -2,7 +2,7 @@
 // import React from 'react'
 
 /** @jsxImportSource @emotion/react */
-import { css, Global, keyframes } from "@emotion/react";
+import { css, Global, keyframes, ClassNames } from "@emotion/react";
 
 // emotion을 styled-component 처럼 사용가능
 import styled from "@emotion/styled";
@@ -90,6 +90,13 @@ const bounce = keyframes`
     }
 `;
 
+// let SomeComponent = (props) => (
+//   <div className={props.wrapperClassName}>
+//     in the wrapper!
+//     <div className={props.children}>{props.children}</div>
+//   </div>
+// );
+
 export default function EmotionExample() {
   return (
     <>
@@ -118,6 +125,20 @@ export default function EmotionExample() {
       >
         Some text!
       </p>
+
+      <ClassNames>
+        {({ css, cx }) => (
+          <SomeComponent
+            wrapperClassName={css({ color: "green" })}
+            className={css`
+              color: hotpink;
+            `}
+          >
+            from children!!
+          </SomeComponent>
+        )}
+      </ClassNames>
+
       <div
         // 스트링 형태
         css={css`
