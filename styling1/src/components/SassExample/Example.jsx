@@ -3,7 +3,7 @@ import "./Example.scss";
 
 // npm install sass
 // Example.scss파일 안에서
-// scss는 변수도 사용가능하게 해줌
+// scss는 변수도 사용가능하게 해줌!
 export default function Example() {
   return (
     <div>
