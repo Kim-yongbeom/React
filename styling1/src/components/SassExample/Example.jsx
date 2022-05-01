@@ -1,6 +1,7 @@
 import React from "react";
 import "./Example.scss";
 
+// npm install sass
 // Example.scss파일 안에서
 // scss는 변수도 사용가능하게 해줌
 export default function Example() {
@@ -36,6 +37,7 @@ export default function Example() {
       <div className="sidebar"></div>
       <div className="gray">gray</div>
       <div className="button">button</div>
+      <div className="pulse">pulse</div>
     </div>
   );
 }
