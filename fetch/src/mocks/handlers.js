@@ -13,10 +13,10 @@ export const handlers = [
   rest.get(
     "https://raw.githubusercontent.com/techoi/raw-data-api/main/simple-api.json",
     async (req, res, ctx) => {
-      const id = req.url.searchParams.get("id");
+      // const id = req.url.searchParams.get("id");
 
-      const originalResponse = await ctx.fetch(req);
-      const originalResponseData = await originalResponse.json();
+      // const originalResponse = await ctx.fetch(req);
+      // const originalResponseData = await originalResponse.json();
       return res(
         ctx.status(403),
         ctx.json({
