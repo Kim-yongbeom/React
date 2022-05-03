@@ -1,15 +1,15 @@
 import "./App.css";
 import TestMocking from "./components/TestMocking";
 import Counter from "./features/counter/Counter";
-import Counter2 from "./components/Counter2";
+// import Counter2 from "./components/Counter2";
 
 function App() {
   return (
     <div className="App">
       <TestMocking />
       <Counter />
-      <br />
-      <Counter2 />
+      {/* <br /> */}
+      {/* <Counter2 /> */}
     </div>
   );
 }

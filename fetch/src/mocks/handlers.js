@@ -1,6 +1,16 @@
 import { rest } from "msw";
 
 export const handlers = [
+  // API 호출해서 redux사용
+  rest.put("http://localhost:3000/counter/increment", async (req, res, ctx) => {
+    // 구조분해할당
+    const { value } = req.body;
+    return res(
+      ctx.json({
+        value: value + 2,
+      })
+    );
+  }),
   rest.get("./login", async (req, res, ctx) => {
     return res(
       ctx.json({
