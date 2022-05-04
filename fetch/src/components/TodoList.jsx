@@ -1,4 +1,5 @@
 import { observer } from "mobx-react";
+import { action } from "mobx";
 
 const TodoList = observer(({ store }) => {
   const onNewTodo = () => {
@@ -10,6 +11,21 @@ const TodoList = observer(({ store }) => {
     store.todos[1].task = "Random todo " + Math.random();
     store.todos.push({ task: "Find a fine cheese", completed: true });
     // etc etc.. add your own statements here...
+  };
+
+  const load = () => {
+    // state를 바꿀땐 action을 감싸서 바꿔야한다
+    action(() => {
+      store.pendingRequests++;
+    })();
+
+    setTimeout(
+      action(() => {
+        store.addTodo("Random Todo " + Math.random());
+        store.pendingRequests--;
+      }),
+      2000
+    );
   };
 
   return (
@@ -24,6 +40,7 @@ const TodoList = observer(({ store }) => {
       <button onClick={onNewTodo}>New Todo</button>
       <small> (double-click a todo to edit)</small>
       <button onClick={run}>run code</button>
+      <button onClick={load}>load data</button>
     </div>
   );
 });
