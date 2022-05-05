@@ -1,4 +1,13 @@
-import { makeObservable, observable, computed, action, autorun } from "mobx";
+import {
+  // makeAutoObservable,
+  makeObservable,
+  observable,
+  computed,
+  action,
+  autorun,
+  flow,
+} from "mobx";
+import Axios from "axios";
 
 class ObservableTodoStore {
   todos = [];
@@ -11,7 +20,10 @@ class ObservableTodoStore {
       completedTodosCount: computed,
       report: computed,
       addTodo: action,
+      // async, await 대신에 flow를 사용해라
+      fetchData: flow,
     });
+    // makeAutoObservable(this);
     autorun(() => console.log(this.report));
   }
 
@@ -35,6 +47,19 @@ class ObservableTodoStore {
       assignee: null,
     });
   }
+
+  fetchData = function* () {
+    const fetchTodo = async () => {
+      const response = await Axios.get("/todo");
+      return response.data.todo.task;
+    };
+    try {
+      const todo = yield fetchTodo();
+      this.addTodo(todo);
+    } catch (error) {
+      console.log(`error: ${error}`);
+    }
+  };
 }
 
 export const observableTodoStore = new ObservableTodoStore();

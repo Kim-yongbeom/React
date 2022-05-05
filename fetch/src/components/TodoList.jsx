@@ -1,5 +1,5 @@
 import { observer } from "mobx-react";
-import { action } from "mobx";
+import { action, runInAction } from "mobx";
 
 const TodoList = observer(({ store }) => {
   const onNewTodo = () => {
@@ -15,9 +15,9 @@ const TodoList = observer(({ store }) => {
 
   const load = () => {
     // state를 바꿀땐 action을 감싸서 바꿔야한다
-    action(() => {
+    runInAction(() => {
       store.pendingRequests++;
-    })();
+    });
 
     setTimeout(
       action(() => {
@@ -26,6 +26,10 @@ const TodoList = observer(({ store }) => {
       }),
       2000
     );
+  };
+
+  const fetchTodo = () => {
+    store.fetchData();
   };
 
   return (
@@ -41,6 +45,7 @@ const TodoList = observer(({ store }) => {
       <small> (double-click a todo to edit)</small>
       <button onClick={run}>run code</button>
       <button onClick={load}>load data</button>
+      <button onClick={fetchTodo}>fetch data</button>
     </div>
   );
 });

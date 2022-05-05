@@ -1,6 +1,15 @@
 import { rest } from "msw";
 
 export const handlers = [
+  rest.get("http://localhost:3000/todo", async (req, res, ctx) => {
+    return res(
+      ctx.json({
+        todo: {
+          task: "Todo from Server",
+        },
+      })
+    );
+  }),
   // API 호출해서 redux사용
   rest.put("http://localhost:3000/counter/increment", async (req, res, ctx) => {
     // 구조분해할당
