@@ -1,4 +1,5 @@
 import "./App.css";
+import Cache from "./components/SWRExample/Cache";
 import Profile from "./components/SWRExample/Profile";
 // import { observableTodoStore } from "./app/ObservableTodoStore";
 // import TodoList from "./components/TodoList";
@@ -10,6 +11,7 @@ import Profile from "./components/SWRExample/Profile";
 function App() {
   return (
     <div className="App">
+      <Cache />
       <Profile />
       {/* <MobxExample /> */}
       {/* <TestMocking /> */}

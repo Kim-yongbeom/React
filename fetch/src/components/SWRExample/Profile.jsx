@@ -34,7 +34,6 @@ function Profile({ id }) {
   return (
     <>
       <div>hello, {user.name}!</div>
-      <Avatar id={123} />
     </>
   );
 }
