@@ -5,9 +5,13 @@ import useSWR from "swr";
 const fetcher = (...args) => axios.get(...args).then((res) => res.data);
 
 function useUser(id) {
-  const { data, error } = useSWR(`/api/user/${id}`, fetcher, {
-    refreshInterval: 1000,
-  });
+  const { data, error } = useSWR(
+    `/api/user/${id}`,
+    fetcher
+    // , {
+    // refreshInterval: 1000,
+    // }
+  );
 
   return {
     user: data,
@@ -38,7 +42,7 @@ function Profile({ id }) {
   );
 }
 
-function Avatar({ id }) {
+export function Avatar({ id }) {
   const { user, isLoading, isError } = useUser(id);
   if (isError) return <div>failed to load (Avatar)</div>;
   if (isLoading) return <dic>loading...(Avatar)</dic>;
