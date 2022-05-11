@@ -83,6 +83,7 @@
        function graphQLFetcher(graphQLParams) {
           // This example expects a GraphQL server at the path /graphql.
           // Change this to point wherever you host your GraphQL server.
+          alert(JSON.stringify(graphQLParams));
           return fetch(parameters.fetchURL || 'https://swapi-graphql.netlify.app/.netlify/functions/index', {
             method: 'post',
             headers: {
