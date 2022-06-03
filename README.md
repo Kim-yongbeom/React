@@ -147,6 +147,7 @@ Under-fetching : 어떤 하나를 완성하기위해 다른 요청들을 해야�
 ```
 
 ## Next.js
+- npx create-next-app my-next-app
 - 서버 사이드 렌더링 (SSR)
 - TypeScript 내장
 - 설정
