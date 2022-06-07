@@ -79,7 +79,6 @@ function App() {
   return (
     <div className="App">
       <ul ref={listRef} className="list" onScroll={handleScroll}>
-        <li className="item"></li>
         {passengers.map((passenger) => (
           <li className="item" key={passenger._id}>
             {passenger.name}
