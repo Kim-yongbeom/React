@@ -3,6 +3,8 @@ import styled from "@emotion/styled/macro";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 
 import { isSameDay } from "../utils/date";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { selectedDateState, todoListState } from "../features/TodoList/atom";
 
 const Header = styled.div`
   width: 100%;
@@ -112,7 +114,11 @@ const MONTHS = [
 ];
 
 const Calendar: React.FC = () => {
-  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  // 선택한 날짜 상태
+  const selectedDate = useRecoilValue(selectedDateState);
+  const todoList = useRecoilValue(todoListState);
+
+  const setSelectedDate = useSetRecoilState(selectedDateState);
 
   const { year, month, firstDay, lastDay } = useMemo(() => {
     const year = selectedDate.getFullYear();
