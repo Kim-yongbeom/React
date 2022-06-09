@@ -1,10 +1,14 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styled from "@emotion/styled/macro";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 
 import { isSameDay } from "../utils/date";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { selectedDateState, todoListState } from "../features/TodoList/atom";
+import { useRecoilCallback, useRecoilValue, useSetRecoilState } from "recoil";
+import {
+  selectedDateState,
+  selectedTodoState,
+  todoListState,
+} from "../features/TodoList/atom";
 import CalendarDay from "./CalendarDay";
 
 const Header = styled.div`
@@ -159,6 +163,34 @@ const Calendar: React.FC = () => {
       <tr key={`week_${week}`}>{items.slice(week * 7, week * 7 + 7)}</tr>
     ));
   };
+
+  // 제거
+  const removeTodo = useRecoilCallback(
+    ({ snapshot, set }) =>
+      () => {
+        const todoList = snapshot.getLoadable(todoListState).getValue();
+        const selectedTodo = snapshot.getLoadable(selectedTodoState).getValue();
+
+        set(
+          todoListState,
+          todoList.filter((todo) => todo.id !== selectedTodo?.id)
+        );
+      },
+    [selectedDate, todoList]
+  );
+
+  useEffect(() => {
+    const onBackspaceKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Backspace") {
+        removeTodo();
+      }
+    };
+    window.addEventListener("keydown", onBackspaceKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", onBackspaceKeyDown);
+    };
+  }, [removeTodo]);
 
   return (
     <Base>
