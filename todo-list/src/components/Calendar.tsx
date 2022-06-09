@@ -5,6 +5,7 @@ import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import { isSameDay } from "../utils/date";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { selectedDateState, todoListState } from "../features/TodoList/atom";
+import CalendarDay from "./CalendarDay";
 
 const Header = styled.div`
   width: 100%;
@@ -146,16 +147,7 @@ const Calendar: React.FC = () => {
       const thisDay = new Date(year, month, d + 1);
       const today = new Date();
 
-      return (
-        <TableData key={d} onClick={() => selectDate(thisDay)}>
-          <DisplayDate
-            isSelected={isSameDay(selectedDate, thisDay)}
-            isToday={isSameDay(today, thisDay)}
-          >
-            {new Date(year, month, d + 1).getDate()}
-          </DisplayDate>
-        </TableData>
-      );
+      return <CalendarDay date={thisDay} />;
     });
 
   const render = () => {
