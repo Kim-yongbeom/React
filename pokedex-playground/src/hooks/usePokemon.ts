@@ -1,10 +1,10 @@
 import axios, { AxiosResponse } from "axios";
 import { useQuery, UseQueryResult } from "react-query";
 
-import { PokemonResponse } from "../types/index";
+// import { PokemonResponse } from "../types";
 
 const pokemonApi = (id?: string) =>
-  axios.get(`https://pokeapi.com/api/v2/pokemon/${id || ""}`, {
+  axios.get(`https://pokeapi.co/api/v2/pokemon/${id || ""}`, {
     params: { limit: 151 },
   });
 
