@@ -96,7 +96,7 @@ const PokemonInfo: React.FC<Props> = ({ id, name, types, color }) => {
     <Base color={mapColorToHex(color?.name)}>
       {/* 포켓볼 이미지를 가르킴 */}
       <ImageWrapper>
-        <Image src="/assets/poketball.svg" />
+        <Image src="/assets/pocketball.svg" />
       </ImageWrapper>
       <InfoWrapper>
         <Name>{name}</Name>
