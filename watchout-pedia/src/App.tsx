@@ -1,5 +1,6 @@
 // npm i react-router-dom
 // npm i @types/react-router-dom -D
+// npm i @emotion/react @emotion/styled
 
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
