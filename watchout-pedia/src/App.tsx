@@ -2,6 +2,10 @@
 // npm i @types/react-router-dom -D
 // npm i @emotion/react @emotion/styled
 // npm i axios
+// npm i react-slick
+// npm i @types/react-slick -D
+// npm i react-query
+// npm install --save dotenv
 
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
