@@ -109,6 +109,10 @@
 - styled-component
 - emotion(styled-component 사용가능)
 - sass
+```
+Emotion의 좋은 점이라면 Emotion과 styled-components 는 성능 및 번들 크기와 관련하여 눈에 띄는 차이가 거의 없었지만 
+Emotion.js이 2kb 더 작았다고 함
+```
 
 ## 상태관리 라이브러리
 - Redux
