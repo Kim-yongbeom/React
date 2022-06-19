@@ -73,7 +73,25 @@
 - Memoization된 값을 반환함, dependency array가 변경될때만 다시 계산
 - useMemo로 전달된 함수는 렌더링 중에 실행됨
 - 통상적으로 렌더링 중에는 하지 않는 것을 useMemo내에서 하면 안됨 (ex) 사이드 이펙트는 useEffect에서만
+```
+sortWords 함수를 useMemo 함수의 첫번째 인자로 넘기고, 두번째 인자로 words prop이 든 배열을 넘김니다. 
+이렇게 해주면, sortWords 함수는 words prop이 달라졌을 때만 호출이 되고, 
+words prop이 동일할 때는 최초 호출 결과가 계속해서 재사용됩니다.
 
+import React, { useMemo } from "react";
+
+function SortedWords({ words }) {
+  const sortWords = () => {
+    console.log("sortWords");
+    delay(500);
+    return words.sort();
+  };
+
+  const sortedWords = useMemo(sortWords, [words]); // FAST
+
+  return; /* 생략 */
+}
+```
 ## useCallback
 - 특정한 함수를 Memoization 할 때 사용
 - useMemo는 특정한 값을 Memoization 할 때 사용
