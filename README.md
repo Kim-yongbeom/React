@@ -121,6 +121,9 @@ function SortedWords({ words }) {
 - 특정한 함수를 Memoization 할 때 사용
 - useMemo는 특정한 값을 Memoization 할 때 사용
 
+## 랜더링 성능 최적화 방법
+- useMemo, useCallback 사용
+
 ## React 재렌더링 조건
 - state(상태) 변경이 있을 때
 - 새로운 props가 들어올 때
@@ -129,9 +132,6 @@ function SortedWords({ words }) {
 ``` 부모 컴포넌트로부터 받은 props가 변경되면 props 값을 받은 자식 컴포넌트도 재렌더링 됨 ```
 - 부모컴포넌트가 재렌더링 될 때
 ``` 부모 컴포넌트가 업데이트 되어 재렌더링 되면 자식 컴포넌트도 재렌더링 된다. ```
-
-## 랜더링 성능 최적화 방법
-- useMemo, useCallback 사용
 
 ## Context
 - props drilling의 한계 해소
