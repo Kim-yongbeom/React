@@ -30,7 +30,10 @@ SPA형태는 브라우저에 최초에 한번 페이지 전체를 로드하고,
 - 컴파일러: 언어 해석기, 특정 언어를 다른 프로그래밍 언어로 옮기는 프로그램
 
 ## Flux 패턴
-- MVC(Model, View, Controller의 약자) 패턴의 복잡성을 해소하기 위해, Flux 패턴에서는 데이터가 한 방향으로만 흐름
+- MVC(Model, View, Controller의 약자) 패턴의 복잡성을 해소하기 위해, Flux 패턴에서는 데이터가 단방향으로만 흐름
+- Dispatcher, Store, Action, View 4개의 구조로 되어있다.
+- 장점: 데이터의 일관성을 유지하기 쉽게 만들어준다, 버그를 발견하기 쉽게 해준다, 테스트를 쉽게 해준다
+- Flow: View는 Dispatcher에게 Action을 보낸다 -> Dispatcher는 모든 Store에게 Action을 보낸다 -> Store는 View에게 데이터를 전송한다
 
 ## React 상태관리 라이브러리
 - Redux, Mobx, Recoil
