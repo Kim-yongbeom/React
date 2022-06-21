@@ -140,6 +140,7 @@ function SortedWords({ words }) {
 ``` 부모 컴포넌트가 업데이트 되어 재렌더링 되면 자식 컴포넌트도 재렌더링 된다. ```
 
 ## Context
+- 상태의 중앙 관리를 위한 상태 관리 도구
 - props drilling의 한계 해소
 - Context를 사용하면 재사용하기 어려움
 - createContext/ Provider/ Consumer
