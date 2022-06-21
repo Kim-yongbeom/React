@@ -35,6 +35,12 @@ SPA형태는 브라우저에 최초에 한번 페이지 전체를 로드하고,
 - 장점: 데이터의 일관성을 유지하기 쉽게 만들어준다, 버그를 발견하기 쉽게 해준다, 테스트를 쉽게 해준다
 - Flow: View는 Dispatcher에게 Action을 보낸다 -> Dispatcher는 모든 Store에게 Action을 보낸다 -> Store는 View에게 데이터를 전송한다
 
+## 클래스형 컴포넌트와 함수형 컴포넌트 차이
+```
+클래스형 컴포넌트는 상태값을 가질 수 있고, 리액트 컴포넌트의 생명 주기 함수를 작성할 수 있다. 
+그러나 함수형 컴포넌트는 이 모든 일을 할 수 없다. 이 둘의 차이점은 상태값과 LifeCycle를 가질 수 있느냐 없느냐이다.
+```
+
 ## React 상태관리 라이브러리
 - Redux, Mobx, Recoil
 - Redux, Mobx, Recoil이 Flux 구조를 사용하고 있다
@@ -138,13 +144,6 @@ function SortedWords({ words }) {
 - Context를 사용하면 재사용하기 어려움
 - createContext/ Provider/ Consumer
 - useContext는 Consumer 
-
-## promise
-- 자바스크립트 비동기 처리에 사용되는 객체이다.
-
-## fetch
-- 자바스크립트를 사용하면 필요할 때 서버에 네트워크 요청을 보내고 새로운 정보를 받아오는 일을 할 수 있다.
-- promise를 기반으로 되어있기 때문에 상태에 따른 로직을 추가하고 처리하는데 최적화 되어있다.
 
 ## React time 라이브러리
 - dayjs(가벼움)
