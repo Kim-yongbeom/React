@@ -35,7 +35,7 @@ const Menu = styled.li`
   height: 62px;
   flex-shrink: 0;
   // 첫번째 항목이 아닐때
-  &:not(:first-child) {
+  &:not(:first-of-type) {
     margin-left: 24px;
   }
 `;
