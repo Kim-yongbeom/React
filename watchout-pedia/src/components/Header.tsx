@@ -34,7 +34,6 @@ const Menu = styled.li`
   align-items: center;
   height: 62px;
   flex-shrink: 0;
-
   // 첫번째 항목이 아닐때
   &:not(:first-child) {
     margin-left: 24px;

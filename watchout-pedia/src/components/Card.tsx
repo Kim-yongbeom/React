@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "@emotion/styled/macro";
-import { Link } from "react-router-dom";
-import { AiFillStar } from "react-icons/ai";
+import React from 'react';
+import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
+import { AiFillStar } from 'react-icons/ai';
 
 interface Props {
   linkUrl: string;
@@ -70,34 +70,29 @@ const Average = styled.div`
   align-items: center;
 `;
 
-const Card: React.FC<Props> = ({
-  linkUrl,
-  title,
-  posterPath,
-  voteAverage,
-  year,
-}) => {
-  return (
-    <StyledLink to={linkUrl}>
-      <Base>
-        <ImageWrapper>
-          <Image src={posterPath} alt={`${title}의 포스터`} />
-        </ImageWrapper>
-        <Info>
-          <Title>{title}</Title>
-          <Keyword>{year}</Keyword>
-          <Average>
-            <span>평균</span>
-            <span>
-              &nbsp;
-              <AiFillStar />
-            </span>
-            <span>{voteAverage}</span>
-          </Average>
-        </Info>
-      </Base>
-    </StyledLink>
-  );
-};
+const Card: React.FC<Props> = ({ linkUrl, title, posterPath, voteAverage, year }) => (
+  <StyledLink to={linkUrl}>
+    <Base>
+      <ImageWrapper>
+        <Image src={posterPath} alt={`${title} 의 포스터`} />
+      </ImageWrapper>
+      <Info>
+        <Title>{title}</Title>
+        <Keyword>{year}</Keyword>
+        <Average>
+          <span>
+            평균
+          </span>
+          <span>
+            &nbsp;<AiFillStar />
+          </span>
+          <span>
+            {voteAverage}
+          </span>
+        </Average>
+      </Info>
+    </Base>
+  </StyledLink>
+)
 
 export default Card;
