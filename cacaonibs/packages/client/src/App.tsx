@@ -1,5 +1,10 @@
 // npx create-react-app ./ --template typescript
 // npm i react-router-dom
+// npm i @emotion/styled @emotion/react
+// npm i prettier -D
+// echo {}> .prettierrc.json
+// npx prettier --write .
+
 // index.tsx에서 import { BrowserRouter } from 'react-router-dom' 추가
 // App을 BrowserRouter로 감싸줌
 
