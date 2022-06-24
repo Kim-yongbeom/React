@@ -6,13 +6,13 @@ import { Op } from "sequelize";
 
 const router = Router();
 
-// 유저 목록
+/* 유저 목록 */
 router.get("/", async (req, res) => {
   try {
     const result = await User.findAndCountAll({
       where: {
         id: {
-          // 로그인한 사용자가 친구목록을 보게하는 코드
+          // @ts-ignore
           [Op.ne]: req.session.userId,
         },
       },
@@ -22,33 +22,51 @@ router.get("/", async (req, res) => {
   } catch (e) {}
 });
 
-// 세션 조회
+/* 유저 생성 */
+router.post("/", async (req, res) => {
+  try {
+    const user = await User.create({
+      id: uuid(),
+      username: req.body.username,
+      thumbnailImageUrl: req.body.thumbnailImageUrl,
+    });
+
+    res.json(user);
+  } catch (e) {}
+});
+
+/* 세션 조회 */
 router.get("/me", async (req, res) => {
   try {
     res.json({
+      // @ts-ignore
       username: req.session.username,
+      // @ts-ignore
       userId: req.session.userId,
+      // @ts-ignore
       isLogged: req.session.isLogged,
     });
   } catch (e) {}
 });
 
-// 로그인
+/* 로그인 */
 router.post("/login", async (req, res) => {
   try {
     const userId = uuid();
     const username = req.body.username;
+
     const user = await User.create({
       id: userId,
       username,
     });
 
-    // 세션 조회에서 가져옴
+    // @ts-ignore
     req.session.username = username;
+    // @ts-ignore
     req.session.userId = userId;
+    // @ts-ignore
     req.session.isLogged = true;
 
-    // 세션 저장
     req.session.save(() => {
       res.json({
         statusText: "OK",
@@ -58,9 +76,10 @@ router.post("/login", async (req, res) => {
   } catch (e) {}
 });
 
-// 로그아웃
+/* 로그아웃 */
 router.post("/logout", async (req, res) => {
   try {
+    // @ts-ignore
     delete req.session.user;
 
     req.session.save(() => {

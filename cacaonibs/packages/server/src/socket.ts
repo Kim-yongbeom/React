@@ -1,4 +1,4 @@
-import SocketIO = require("socket.io");
+const SocketIO = require("socket.io");
 
 import { Application, NextFunction, RequestHandler } from "express";
 import { Server } from "net";
@@ -18,19 +18,22 @@ const socket = (server: Server, app: Application, session: RequestHandler) => {
 
   io.use((socket: Socket, next: NextFunction) => {
     const req = socket.request;
-
+    // @ts-ignore
     const res = socket.request.res || {};
-
+    // @ts-ignore
     session(req, res, next);
   });
-  chat.on("connection", async (req, res) => {
+
+  chat.on("connection", async (socket: Socket) => {
+    console.log("Connected to Chat", socket.id);
+
     socket.on("join", (roomId) => {
       socket.join(roomId);
     });
-  });
 
-  socket.on("disconnect", (data) => {
-    console.log("Disconnected to Chat");
+    socket.on("disconnect", (data) => {
+      console.log("Disconnected to Chat");
+    });
   });
 };
 
