@@ -3,6 +3,7 @@
 // npm i @emotion/styled @emotion/react
 // npm i react-icons
 // npm i axios
+// npm i react-query
 
 // index.tsx에서 import { BrowserRouter } from 'react-router-dom' 추가
 // App을 BrowserRouter로 감싸줌
