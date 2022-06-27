@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
-import { useNavigate } from "react-router-dom";
 import TopNavigation from "../components/TopNavigation";
 import BottomNavigation from "../components/BottomNavigation";
 import Profile from "../components/Profile";
@@ -15,14 +14,29 @@ import {
   makeChatRoom,
   MakeChatRoomRequest,
 } from "../apis/roomApi";
+import { useNavigate } from "react-router-dom";
 
-const Base = styled.div``;
+const Base = styled.div`
+  width: 100%;
+  height: 100vh;
+  padding: 0 12px;
+  box-sizing: border-box;
+`;
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
-const Summary = styled.small``;
+const Summary = styled.small`
+  margin: 4px 0;
+  padding: 24px 0 0 0;
+  font-size: 12px;
+`;
 
 const Friends: React.FC = () => {
+  const navigate = useNavigate();
+
   const { data: profileData } = useQuery<AxiosResponse<IProfile>, AxiosError>(
     "fetchMyProfile",
     fetchMyProfile
@@ -47,8 +61,18 @@ const Friends: React.FC = () => {
       (chatRoom) => chatRoom.opponentId === opponentId
     );
     if (chatRoom) {
-      navigate(`/room/${charRoom.id}`);
+      navigate(`/room/${chatRoom.id}`);
     } else {
+      mutation.mutate(
+        {
+          opponentId,
+        },
+        {
+          onSuccess: (data) => {
+            navigate(`/room/${data.data.id}`);
+          },
+        }
+      );
     }
   };
 
