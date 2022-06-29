@@ -74,10 +74,39 @@ SPA형태는 브라우저에 최초에 한번 페이지 전체를 로드하고,
 - 비동기 처리를 기반으로 작성되어 동시성 모드를 제공하기 때문에, Redux와 같이 다른 비동기 처리 라이브러리에 의존할 필요가 없다
 - atom(Recoil의 상태 단위) -> selector를 거쳐 컴포넌트로 전달되는 하나의 data-flow를 가지고 있어 복잡하지 않은 상태 구조를 가지고 있다
 - 스토어에 저장되고 갱신되는 데이터는 모두 atom을 기반으로 한다
-- atom이 갱신될 때 그 상태를 구독하고 있는 컴포넌트는 새로운 값으로 리랜더 된다
+- atom으로 만든 상태를 읽는 모든 컴포넌트는 atom의 상태가 변경되면 rerendering 된다.
 - selector는 상태를 기반으로 전달된 데이터를 가공할 때 사용된다.
 - atom과 selector만 알고도 어느정도 구현이 가능하기 때문에 러닝커브가 비교적 낮다고 할 수 있다
 - store와 같은 외부 요인이 아닌 React 내부의 상태를 활용하고 context API를 통해 구현되어 있기 때문에 더 리액트에 가까운 라이브러리라고 할 수 있다
+```
+- Recoil(selector)
+```
+import { atom, selector } from "recoil";
+
+const givenName = atom<string>({
+  key: "givenName",
+  default: "",
+});
+const familyName = atom<string>({
+  key: "familyName",
+  default: "",
+});
+
+const displayName = selector<string>({
+  key: "displayName",
+  get: ({ get }) => {
+    const givenName = get(givenName);
+    const familyName = get(familyName);
+    return `${familyName} ${givenName}`;
+  },
+});
+```
+- atom 또는 selector 를 기반으로 새롭게 결과를 구성해주는 순수함수이다.
+- 구독중인 atom 또는 selector 가 업데이트 되면 selector 도 업데이트 된다.
+```
+get 을 이용하여 다른 atom도 구독할 수 있다.
+컴포넌트 입장에서는 atom, selector 둘 다 동일한 인터페이스를 가지기 때문에 서로 대체가 가능하다.
+set 을 이용하여 구독하는 상태의 값들을 업데이트 할 수 있다.
 ```
 
  ## CDN (Content Delivery Network)
