@@ -19,6 +19,8 @@ function App() {
       {name.map((i) => (
         <ul key={i.url}>
           <li>
+            id: {i.url.slice(34, -1)}
+            <br />
             name: {i.name}
             <br />
             url: {i.url}
