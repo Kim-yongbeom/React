@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       {name.map((i) => (
-        <ul>
+        <ul key={i.url}>
           <li>
             name: {i.name}
             <br />
