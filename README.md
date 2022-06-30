@@ -52,8 +52,8 @@ SPA형태는 브라우저에 최초에 한번 페이지 전체를 로드하고,
 - MVC와 다르게 단방향으로 데이터가 흘러간다. 
 - 데이터는 언제나 Dispatcher에서 Store로, Store에서 View로, 그리고 Action으로 다시 Dispatcher로 이런식으로 쭉 흐른다.
 
-## 상태관리 라이브러리
-- Redux
+# 상태관리 라이브러리
+## Redux
 ```
 - 상태를 전역적으로 관리하기 때문에 어느 컴포넌트에 상태를 둬야할지 고민할 필요 없음
 - 데이터 흐름을 단방향으로 흐르게 한다
@@ -61,7 +61,7 @@ SPA형태는 브라우저에 최초에 한번 페이지 전체를 로드하고,
 - 상태를 읽기 전용으로 취급한다
 - 액션을 하나 추가하는데, 작성 필요한 부분이 많고, 컴포넌트와 스토어를 연결하는 필수적인 부분들이 있어 코드량이 많아질 수 있다
 ```
-- MobX
+## MobX
 ```
 - React에 종속적인 라이브러리가 아니고, Redux와 다르게 store에 제한이 없다
 - observable을 기본적으로 사용하고, 절대적으로 필요한 경우에만 state를 변경한다
@@ -69,16 +69,45 @@ SPA형태는 브라우저에 최초에 한번 페이지 전체를 로드하고,
 - state의 불변성 유지를 위해 노력하지 않아도 된다. Redux에서는 state의 불변성 유지를 위해 여러 라이브러리를 사용한다
 ```
 
-- Recoil
+## Recoil
 ```
 - 비동기 처리를 기반으로 작성되어 동시성 모드를 제공하기 때문에, Redux와 같이 다른 비동기 처리 라이브러리에 의존할 필요가 없다
 - atom(Recoil의 상태 단위) -> selector를 거쳐 컴포넌트로 전달되는 하나의 data-flow를 가지고 있어 복잡하지 않은 상태 구조를 가지고 있다
 - 스토어에 저장되고 갱신되는 데이터는 모두 atom을 기반으로 한다
-- atom이 갱신될 때 그 상태를 구독하고 있는 컴포넌트는 새로운 값으로 리랜더 된다
+- atom으로 만든 상태를 읽는 모든 컴포넌트는 atom의 상태가 변경되면 rerendering 된다.
 - selector는 상태를 기반으로 전달된 데이터를 가공할 때 사용된다.
 - atom과 selector만 알고도 어느정도 구현이 가능하기 때문에 러닝커브가 비교적 낮다고 할 수 있다
 - store와 같은 외부 요인이 아닌 React 내부의 상태를 활용하고 context API를 통해 구현되어 있기 때문에 더 리액트에 가까운 라이브러리라고 할 수 있다
 ```
+- Recoil(selector)
+```
+import { atom, selector } from "recoil";
+
+const givenName = atom<string>({
+  key: "givenName",
+  default: "",
+});
+const familyName = atom<string>({
+  key: "familyName",
+  default: "",
+});
+
+const displayName = selector<string>({
+  key: "displayName",
+  get: ({ get }) => {
+    const givenName = get(givenName);
+    const familyName = get(familyName);
+    return `${familyName} ${givenName}`;
+  },
+});
+```
+  - atom 또는 selector 를 기반으로 새롭게 결과를 구성해주는 순수함수이다.
+  - 구독중인 atom 또는 selector 가 업데이트 되면 selector 도 업데이트 된다.
+  ```
+get 을 이용하여 다른 atom도 구독할 수 있다.
+컴포넌트 입장에서는 atom, selector 둘 다 동일한 인터페이스를 가지기 때문에 서로 대체가 가능하다.
+set 을 이용하여 구독하는 상태의 값들을 업데이트 할 수 있다.
+  ```
 
  ## CDN (Content Delivery Network)
  - 웹에서 사용되는 다양한 컨텐츠(리소스)를 저장하여 제공하는 시스템
@@ -172,6 +201,7 @@ function SortedWords({ words }) {
 ```
 Emotion의 좋은 점이라면 Emotion과 styled-components 는 성능 및 번들 크기와 관련하여 눈에 띄는 차이가 거의 없었지만 
 Emotion.js이 2kb 더 작았다고 함
+npm trend에서 Emotion을 더 많이씀
 ```
 
 ## GraphQL
