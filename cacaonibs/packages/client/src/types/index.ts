@@ -23,6 +23,7 @@ export interface IRoom {
 
 export interface IChat {
   id: number;
+  username: string;
   content: string;
   senderId: string;
   roomId: string;
