@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { v4 as uuid } from "uuid";
 
+import mock from "../mock";
 import User from "../schemas/user";
 import { Op } from "sequelize";
 
@@ -19,6 +20,30 @@ router.get("/", async (req, res) => {
     });
 
     res.json(result);
+  } catch (e) {}
+});
+
+router.post("/mock", async (req, res) => {
+  try {
+    await User.create({
+      id: uuid(),
+      username: mock[0].username,
+      thumbnailImageUrl: mock[0].thumbnailImageUrl,
+    });
+    await User.create({
+      id: uuid(),
+      username: mock[1].username,
+      thumbnailImageUrl: mock[1].thumbnailImageUrl,
+    });
+    await User.create({
+      id: uuid(),
+      username: mock[2].username,
+      thumbnailImageUrl: mock[2].thumbnailImageUrl,
+    });
+
+    res.json({
+      statusText: "OK",
+    });
   } catch (e) {}
 });
 
