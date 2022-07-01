@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "@emotion/styled/macro";
 import { Global, css } from "@emotion/react";
+import { io } from "socket.io-client";
+
 import TopNavigation from "../components/ChatRoomDetail/TopNavigation";
 import { useParams } from "react-router-dom";
 import { fetchMyProfile } from "../apis/userApi";
@@ -33,6 +35,7 @@ const globalStyle = css`
 `;
 
 const RoomDetail: React.FC = () => {
+  const scrollBottomRef = useRef<HTMLLIElement>(null);
   const { roomId } = useParams<string>();
 
   const { data: profileData } = useQuery<AxiosResponse<IProfile>, AxiosError>(
@@ -52,6 +55,20 @@ const RoomDetail: React.FC = () => {
     fetchChatMessageList(roomId as string)
   );
 
+  const [messages, setMessages] = useState<Array<IChat>>(
+    chatListData?.data || []
+  );
+
+  useEffect(() => {
+    const socket = io("http://localhost:8000", { path: "/socket.io" });
+
+    socket.emit("join", roomId);
+
+    socket.on("chat", (newMessage: IChat) => {
+      setMessages((prev) => [...prev, newMessage]);
+    });
+  }, []);
+
   const mutation = useMutation("sendChatMessage", (content: string) =>
     sendChatMessage(roomId as string, content)
   );
@@ -62,6 +79,10 @@ const RoomDetail: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    scrollBottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   return (
     <Base>
       <Global styles={globalStyle} />
@@ -70,7 +91,7 @@ const RoomDetail: React.FC = () => {
       )}
       <Container>
         <MessageList>
-          {chatListData?.data.map((message) =>
+          {messages.map((message) =>
             message.senderId === profileData?.data.userId ? (
               <SentMessage
                 senderId={message.senderId}
@@ -86,6 +107,7 @@ const RoomDetail: React.FC = () => {
               />
             )
           )}
+          <li ref={scrollBottomRef} />
         </MessageList>
       </Container>
       <InputChat onClick={handleSend} />
