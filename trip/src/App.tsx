@@ -1,8 +1,11 @@
+// 린팅/포매팅
 // npm install @titicaca/eslint-config-triple --save-dev
-import React from "react";
+
+// npm i @emotion/styled
+import React from 'react'
 
 function App() {
-  return <div className="App">dd</div>;
+  return <div className="App">dd</div>
 }
 
-export default App;
+export default App
