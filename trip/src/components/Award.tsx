@@ -4,7 +4,7 @@ import playstroe2x from "../imgs/play-store2x.png";
 import badgeapple4x from "../imgs/badge-apple4x.png";
 
 const Base = styled.div`
-  margin: 3.125rem 0 8.75rem 49rem;
+  margin: 3.125rem 0 8.75rem 39rem;
   white-space: nowrap;
 `;
 

@@ -2,8 +2,8 @@ import React from "react";
 import styled from "@emotion/styled/macro";
 
 const Base = styled.div`
-  margin-left: 49rem;
-  padding-top: 9.475rem;
+  margin-left: 39rem;
+  padding-top: 9.375rem;
 `;
 
 const Line = styled.div`
