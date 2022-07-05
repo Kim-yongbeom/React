@@ -1,6 +1,19 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
+import { keyframes } from "@emotion/react";
 import triple2x from "../imgs/triple2x.png";
+
+// fadein animation
+const FadeIn = keyframes`
+  0% {
+      opacity: 0;
+      // x축, y축, z축 => y축 10%만큼 이동
+      transform: translate3d(0, 5%, 0);
+  }
+  to {
+      opacity: 1;
+  }
+`;
 
 const Base = styled.div`
   position: relative;
@@ -20,6 +33,7 @@ const TextWrapper = styled.div<{ url?: string }>`
   text-align: center;
   font-family: sans-serif;
   color: rgba(58, 58, 58, 0.7);
+  animation: ${FadeIn} 0.7s;
 `;
 
 const Text = styled.div``;

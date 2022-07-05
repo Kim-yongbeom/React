@@ -1,5 +1,17 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
+import { keyframes } from "@emotion/react";
+
+const FadeIn = keyframes`
+  0% {
+      opacity: 0;
+      // x축, y축, z축 => y축 10%만큼 이동
+      transform: translate3d(0, 5%, 0);
+  }
+  to {
+      opacity: 1;
+  }
+`;
 
 const Base = styled.div`
   margin-left: 39rem;
@@ -12,6 +24,7 @@ const Line = styled.div`
   font-family: sans-serif;
   color: rgb(58, 58, 58);
   margin-bottom: 1.25rem;
+  animation: ${FadeIn} 0.7s 0.1s;
 `;
 
 const Text = styled.strong``;

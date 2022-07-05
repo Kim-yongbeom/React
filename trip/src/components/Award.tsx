@@ -1,7 +1,19 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
+import { keyframes } from "@emotion/react";
 import playstroe2x from "../imgs/play-store2x.png";
 import badgeapple4x from "../imgs/badge-apple4x.png";
+
+const FadeIn = keyframes`
+  0% {
+      opacity: 0;
+      // x축, y축, z축 => y축 10%만큼 이동
+      transform: translate3d(0, 5%, 0);
+  }
+  to {
+      opacity: 1;
+  }
+`;
 
 const Base = styled.div`
   margin: 3.125rem 0 8.75rem 39rem;
@@ -22,6 +34,7 @@ const TextWrapper = styled.div<{ url?: string }>`
   background-repeat: no-repeat;
   color: rgba(58, 58, 58, 0.8);
   font-weight: bold;
+  animation: ${FadeIn} 0.7s 0.2s;
 `;
 
 const Text = styled.div``;
