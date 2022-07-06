@@ -8,6 +8,7 @@ const Base = styled.div<{ color?: string }>`
   position: relative;
   top: 9.375rem;
   font-size: 0.9375rem;
+  font-family: sans-serif;
   ${({ color }) => color && `color: ${color}`}
 `;
 
@@ -21,7 +22,6 @@ const TextWrapper = styled.div<{ url?: string }>`
   ${({ url }) => url && `background-image: url(${url})`};
   background-repeat: no-repeat;
   text-align: center;
-  font-family: sans-serif;
   animation: ${FadeIn} 0.7s;
 `;
 

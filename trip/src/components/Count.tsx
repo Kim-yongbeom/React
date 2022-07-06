@@ -6,13 +6,13 @@ import { useTheme } from "@emotion/react";
 const Base = styled.div<{ color?: string }>`
   margin-left: 39rem;
   padding-top: 9.375rem;
+  font-size: 2.25rem;
+  font-family: sans-serif;
   ${({ color }) => color && `color: ${color}`}
 `;
 
 const Line = styled.div`
-  font-size: 2.25rem;
   letter-spacing: -1px;
-  font-family: sans-serif;
   margin-bottom: 1.25rem;
   animation: ${FadeIn} 0.7s 0.1s;
 `;

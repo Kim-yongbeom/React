@@ -8,6 +8,10 @@ import { useTheme } from "@emotion/react";
 const Base = styled.div<{ color?: string }>`
   margin: 3.125rem 0 8.75rem 39rem;
   white-space: nowrap;
+  font-size: 0.875rem;
+  font-family: sans-serif;
+  font-weight: bold;
+  line-height: 1.375rem;
   ${({ color }) => color && `color: ${color}`}
 `;
 
@@ -15,15 +19,11 @@ const TextWrapper = styled.div<{ url?: string }>`
   background-size: 3.375rem 3.375rem;
   height: 3.375rem;
   padding: 0.3125rem 0 0.3125rem 3.875rem;
-  font-size: 0.875rem;
-  line-height: 1.375rem;
   margin-right: 2.4375rem;
   display: inline-block;
-  font-family: sans-serif;
   ${({ url }) => url && `background-image: url(${url})`};
   background-position: left top;
   background-repeat: no-repeat;
-  font-weight: bold;
   animation: ${FadeIn} 0.7s 0.2s;
 `;
 
