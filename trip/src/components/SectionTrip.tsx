@@ -1,4 +1,4 @@
-// TripImg, Count, Award 를 묶은 하나의 section
+// TripImg, ContentList, AwardList 를 묶은 하나의 section
 import React from "react";
 import styled from "@emotion/styled/macro";
 import TripImg from "./TripImg";
