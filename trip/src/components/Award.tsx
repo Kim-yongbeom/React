@@ -1,23 +1,14 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
-import { keyframes } from "@emotion/react";
 import playstroe2x from "../imgs/play-store2x.png";
 import badgeapple4x from "../imgs/badge-apple4x.png";
+import { FadeIn } from "../styles/animation";
+import { useTheme } from "@emotion/react";
 
-const FadeIn = keyframes`
-  0% {
-      opacity: 0;
-      // x축, y축, z축 => y축 10%만큼 이동
-      transform: translate3d(0, 5%, 0);
-  }
-  to {
-      opacity: 1;
-  }
-`;
-
-const Base = styled.div`
+const Base = styled.div<{ color?: string }>`
   margin: 3.125rem 0 8.75rem 39rem;
   white-space: nowrap;
+  ${({ color }) => color && `color: ${color}`}
 `;
 
 const TextWrapper = styled.div<{ url?: string }>`
@@ -32,7 +23,6 @@ const TextWrapper = styled.div<{ url?: string }>`
   ${({ url }) => url && `background-image: url(${url})`};
   background-position: left top;
   background-repeat: no-repeat;
-  color: rgba(58, 58, 58, 0.8);
   font-weight: bold;
   animation: ${FadeIn} 0.7s 0.2s;
 `;
@@ -40,8 +30,10 @@ const TextWrapper = styled.div<{ url?: string }>`
 const Text = styled.div``;
 
 const Award: React.FC = () => {
+  const theme = useTheme();
+
   return (
-    <Base>
+    <Base color={theme.colors.gray[0.8]}>
       <TextWrapper url={playstroe2x}>
         <Text>
           2018 구글 플레이스토어
