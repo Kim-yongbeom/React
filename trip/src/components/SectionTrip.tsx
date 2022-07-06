@@ -1,8 +1,9 @@
+// TripImg, Count, Award 를 묶은 하나의 section
 import React from "react";
 import styled from "@emotion/styled/macro";
 import TripImg from "./TripImg";
-import Count from "./Count";
-import Award from "./Award";
+import ContentList from "./ContentList";
+import AwardList from "./AwardList";
 
 const Base = styled.section`
   height: auto;
@@ -19,8 +20,8 @@ const SectionTrip: React.FC = () => {
     <Base>
       <Container>
         <TripImg />
-        <Count />
-        <Award />
+        <ContentList />
+        <AwardList />
       </Container>
     </Base>
   );
