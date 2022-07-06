@@ -1,3 +1,4 @@
+// 반복되는 글꼴 색상
 import { Theme } from "@emotion/react";
 
 export const theme: Theme = {

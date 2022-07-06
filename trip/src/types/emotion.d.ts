@@ -1,3 +1,4 @@
+// theme 타입 설정
 import "@emotion/react";
 
 declare module "@emotion/react" {

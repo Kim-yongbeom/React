@@ -1,3 +1,4 @@
+// 컨텐츠 내용
 import React from "react";
 import styled from "@emotion/styled/macro";
 import { FadeIn } from "../styles/animation";
@@ -20,7 +21,9 @@ const Line = styled.div`
 const Text = styled.strong``;
 
 const Count: React.FC = () => {
+  // theme.ts에서 설정해준 값 가져옴
   const theme = useTheme();
+
   return (
     <Base color={theme.colors.primary}>
       <Line>

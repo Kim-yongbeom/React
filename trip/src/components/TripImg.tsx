@@ -1,3 +1,4 @@
+// TRIP 이미지
 import React from "react";
 import styled from "@emotion/styled/macro";
 import triple2x from "../imgs/triple2x.png";
@@ -19,6 +20,7 @@ const TextWrapper = styled.div<{ url?: string }>`
   padding-top: 17.5rem;
   background-size: 25rem 21.125rem;
   box-sizing: border-box;
+  // 이미지 파일
   ${({ url }) => url && `background-image: url(${url})`};
   background-repeat: no-repeat;
   text-align: center;
@@ -28,6 +30,7 @@ const TextWrapper = styled.div<{ url?: string }>`
 const Text = styled.div``;
 
 const TripImg: React.FC = () => {
+  // theme.ts에서 설정해준 값 가져옴
   const theme = useTheme();
 
   return (

@@ -1,3 +1,4 @@
+// 반복되는 애니메이션 설정
 import { keyframes } from "@emotion/react";
 
 export const FadeIn = keyframes`

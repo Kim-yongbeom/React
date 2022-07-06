@@ -1,3 +1,4 @@
+// 수상내역
 import React from "react";
 import styled from "@emotion/styled/macro";
 import playstroe2x from "../imgs/play-store2x.png";
@@ -21,6 +22,7 @@ const TextWrapper = styled.div<{ url?: string }>`
   padding: 0.3125rem 0 0.3125rem 3.875rem;
   margin-right: 2.4375rem;
   display: inline-block;
+  // 이미지 파일
   ${({ url }) => url && `background-image: url(${url})`};
   background-position: left top;
   background-repeat: no-repeat;
@@ -30,6 +32,7 @@ const TextWrapper = styled.div<{ url?: string }>`
 const Text = styled.div``;
 
 const Award: React.FC = () => {
+  // theme.ts에서 설정해준 값 가져옴
   const theme = useTheme();
 
   return (

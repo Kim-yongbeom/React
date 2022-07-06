@@ -13,6 +13,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    {/* ThemeProvider에 theme 전달 */}
     <ThemeProvider theme={theme}>
       <App />
     </ThemeProvider>
