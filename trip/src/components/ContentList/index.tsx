@@ -18,9 +18,9 @@ const ContentList: React.FC = () => {
 
   return (
     <Base color={theme.colors.primary}>
-      <Content numberText="700" text1="만 명" text2="의 여행자" />
-      <Content numberText="100" text1="만 개" text2="의 여행 리뷰" />
-      <Content numberText="470" text1="만 개" text2="의 여행 일정" />
+      <Content numberText={700} text1="만 명" text2="의 여행자" />
+      <Content numberText={100} text1="만 개" text2="의 여행 리뷰" />
+      <Content numberText={470} text1="만 개" text2="의 여행 일정" />
     </Base>
   );
 };
