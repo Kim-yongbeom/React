@@ -13,7 +13,7 @@ const TextWrapper = styled.div<{ url?: string }>`
   ${({ url }) => url && `background-image: url(${url})`};
   background-position: left top;
   background-repeat: no-repeat;
-  animation: ${FadeIn} 0.7s 0.2s;
+  animation: ${FadeIn(20)} 0.7s 0.2s;
 `;
 
 const Text = styled.div``;

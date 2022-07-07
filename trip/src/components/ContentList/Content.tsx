@@ -7,7 +7,7 @@ import useCount from "../../hooks/useCount";
 const Line = styled.div`
   letter-spacing: -1px;
   margin-bottom: 1.25rem;
-  animation: ${FadeIn} 0.7s 0.1s;
+  animation: ${FadeIn(20)} 0.7s 0.1s;
 `;
 
 const Text = styled.strong``;
