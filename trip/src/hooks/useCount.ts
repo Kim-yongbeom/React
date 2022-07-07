@@ -15,7 +15,6 @@ const useCount = (end: number, start: number, duration: number) => {
       if (currentNumber.current < 0) {
         clearInterval(counter);
       }
-      // step 수정해야함
       const step = currentNumber.current / Math.ceil(end / 5);
       currentNumber.current -= step;
     }, stepTime);
