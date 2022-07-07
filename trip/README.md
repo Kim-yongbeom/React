@@ -28,6 +28,12 @@
 트리플의 수상내역 컴포넌트
 ```
 
+- src/hooks
+
+```
+숫자 상승하는 애니메이션 커스텀 훅
+```
+
 - src/imgs
 
 ```
@@ -53,4 +59,14 @@ theme.ts 파일은 글꼴 색상 설정
 
 ```
 index.tsx에 ThemeProvider theme={theme} 추가해 줘야 한다!!
+```
+
+### 숫자가 올라가는 애니메이션
+
+```
+숫자 상승 커스텀훅 참고
+https://shylog.com/react-custom-hooks-scroll-animation-countup/
+
+숫자 점점 느리게 상승 참고
+https://gurtn.tistory.com/163
 ```
