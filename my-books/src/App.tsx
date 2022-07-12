@@ -4,6 +4,13 @@
 // 런타임에 문제가 있을때 에러페이지로 이동 시킬수 있다.
 // npm i react-error-boundary
 
+// npm i redux react-redux redux-saga redux-devtools-extension redux-actions
+// npm i @types/react-redux @types/redux-actions -D
+
+// antd의 css를 적용하려면 index.tsx에서 import "antd/dist/antd.min.css"; 기입
+// npm i antd
+// npm i @ant-design/icons
+
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { Route, Routes } from "react-router-dom";
