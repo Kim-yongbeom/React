@@ -11,6 +11,8 @@
 // npm i antd
 // npm i @ant-design/icons
 
+// npm i axios
+
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { Route, Routes } from "react-router-dom";

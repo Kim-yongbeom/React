@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Row, Col, Input, Button } from "antd";
+import { Row, Col, Button } from "antd";
 import styles from "./Signin.module.css";
 import { LoginReqType } from "../types";
 
@@ -9,8 +9,8 @@ interface SigninProps {
 
 const Signin: React.FC<SigninProps> = ({ login }) => {
   // useRef type input으로 설정해줘야함 any 노노
-  const emailRef = useRef<any>(null);
-  const passwordRef = useRef<any>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
 
   return (
     <Row align="middle" className={styles.signin_row}>
@@ -34,7 +34,7 @@ const Signin: React.FC<SigninProps> = ({ login }) => {
               <span className={styles.required}>*</span>
             </div>
             <div className={styles.input_area}>
-              <Input
+              <input
                 ref={emailRef}
                 placeholder="Email"
                 autoComplete="email"
@@ -47,7 +47,7 @@ const Signin: React.FC<SigninProps> = ({ login }) => {
               <span className={styles.required}>*</span>
             </div>
             <div className={styles.input_area}>
-              <Input
+              <input
                 ref={passwordRef}
                 type="password"
                 autoComplete="current-password"
