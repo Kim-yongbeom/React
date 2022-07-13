@@ -1,5 +1,5 @@
 // store를 만드는 파일
-import { applyMiddleware, createStore } from "redux";
+import { applyMiddleware, legacy_createStore as createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import createSageMiddleware from "redux-saga";
 import reducer from "./modules/reducer";

@@ -1,3 +1,5 @@
+// react-router-dom 5버전으로 설치해야함
+// 2022-07-13 일자에 설치한 버전은 6버전
 // npm i react-router-dom
 // npm i --save-dev @types/react-router-dom
 
@@ -17,7 +19,7 @@
 
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import { Route, Routes } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Add from "./pages/Add";
 import Detail from "./pages/Detail";
 import Edit from "./pages/Edit";
@@ -33,14 +35,14 @@ function App() {
     // npm i react-error-boundary를 설치해 ErrorBoundary사용 Error페이지로 이동하게함
     <ErrorBoundary FallbackComponent={Error}>
       <ConnectedRouter history={history}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/add" element={<Add />} />
-          <Route path="/book/:id" element={<Detail />} />
-          <Route path="/edit/:id" element={<Edit />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/signin" component={Signin} />
+          <Route exact path="/add" component={Add} />
+          <Route exact path="/book/:id" component={Detail} />
+          <Route exact path="/edit/:id" component={Edit} />
+          <Route component={NotFound} />
+        </Switch>
       </ConnectedRouter>
     </ErrorBoundary>
   );
