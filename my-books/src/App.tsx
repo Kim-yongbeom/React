@@ -13,10 +13,11 @@
 
 // npm i axios
 
+// npm i connected-react-router
+
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { Route, Routes } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
 import Add from "./pages/Add";
 import Detail from "./pages/Detail";
 import Edit from "./pages/Edit";
@@ -24,12 +25,14 @@ import Error from "./pages/Error";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Signin from "./pages/Signin";
+import { ConnectedRouter } from "connected-react-router";
+import history from "./history";
 
 function App() {
   return (
     // npm i react-error-boundary를 설치해 ErrorBoundary사용 Error페이지로 이동하게함
     <ErrorBoundary FallbackComponent={Error}>
-      <BrowserRouter>
+      <ConnectedRouter history={history}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<Signin />} />
@@ -38,7 +41,7 @@ function App() {
           <Route path="/edit/:id" element={<Edit />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+      </ConnectedRouter>
     </ErrorBoundary>
   );
 }
