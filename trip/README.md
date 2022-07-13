@@ -1,3 +1,6 @@
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/89058117/178774734-fdcc9eaf-00b2-4a68-96af-577396e5c341.gif)
+
+
 ### 설치, 실행
 
 - npm i @emotion/styled @emotion/react
