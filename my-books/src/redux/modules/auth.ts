@@ -1,16 +1,10 @@
 import { createActions, handleActions } from "redux-actions";
-import { takeEvery, put, call } from "redux-saga/effects";
+import { takeEvery, put, call, select } from "redux-saga/effects";
 import { Action } from "redux-actions";
-import { LoginReqType } from "../../types";
+import { AuthState, LoginReqType } from "../../types";
 import UserService from "../../services/UseService";
 import TokenService from "../../services/TokenService";
 import { push } from "connected-react-router";
-
-interface AuthState {
-  token: string | null;
-  loading: boolean;
-  error: Error | null;
-}
 
 // 초기값 세팅
 const initialState: AuthState = {
@@ -68,7 +62,18 @@ function* loginSaga(action: Action<LoginReqType>) {
   }
 }
 
-function* logoutSaga() {}
+function* logoutSaga() {
+  try {
+    yield put(pending());
+    const token: string = yield select((state) => state.auth.token);
+    yield call(UserService.logout, token);
+    TokenService.set(token);
+  } catch (error: any) {
+  } finally {
+    TokenService.remove();
+    yield put(success(null));
+  }
+}
 
 export function* authSaga() {
   yield takeEvery(`${prefix}/LOGIN`, loginSaga);
