@@ -1,7 +1,13 @@
 import { Button, PageHeader, Table } from "antd";
+import { BookType } from "../types";
 import Layout from "./Layout";
 
-export default function List() {
+interface ListProps {
+  books: BookType[] | null;
+  loading: boolean;
+}
+
+const List: React.FC<ListProps> = ({ books, loading }) => {
   const goAdd = () => {};
   const logout = () => {};
 
@@ -18,9 +24,23 @@ export default function List() {
           </Button>,
         ]}
       />
-      <Table />
+      <Table
+        dataSource={[]}
+        columns={[
+          {
+            title: "Book",
+            dataIndex: "book",
+            key: "book",
+            render: () => <div>book</div>,
+          },
+        ]}
+        loading={books === null || loading}
+        showHeader={false}
+        rowKey="bookId"
+        pagination={false}
+      />
     </Layout>
   );
+};
 
-  function click() {}
-}
+export default List;
