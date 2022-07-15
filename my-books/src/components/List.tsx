@@ -1,13 +1,19 @@
 import { Button, PageHeader, Table } from "antd";
+import { useEffect } from "react";
 import { BookType } from "../types";
 import Layout from "./Layout";
 
 interface ListProps {
   books: BookType[] | null;
   loading: boolean;
+  getBooks: () => void;
 }
 
-const List: React.FC<ListProps> = ({ books, loading }) => {
+const List: React.FC<ListProps> = ({ books, loading, getBooks }) => {
+  useEffect(() => {
+    getBooks();
+  }, [getBooks]);
+
   const goAdd = () => {};
   const logout = () => {};
 

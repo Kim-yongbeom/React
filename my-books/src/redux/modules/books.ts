@@ -37,5 +37,8 @@ const reducer = handleActions<BooksState, BookType[]>(
 export default reducer;
 
 // saga
+export const { getBooks } = createActions("GET_BOOKS", {
+  prefix,
+});
 
 export function* booksSaga() {}
