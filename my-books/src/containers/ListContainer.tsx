@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import List from "../components/List";
 import { BookType, RootState } from "../types";
+import { getBooks as getBooksSagaStart } from "../redux/modules/books";
 
 export default function ListContainer() {
   const books = useSelector<RootState, BookType[] | null>(
@@ -13,7 +14,7 @@ export default function ListContainer() {
   );
   const dispatch = useDispatch();
   const getBooks = useCallback(() => {
-    dispatch();
+    dispatch(getBooksSagaStart());
   }, [dispatch]);
   return <List books={books} loading={loading} getBooks={getBooks} />;
 }
