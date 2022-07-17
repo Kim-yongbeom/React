@@ -7,7 +7,7 @@ export default class BookService {
   public static async getBooks(token: string): Promise<BookType[]> {
     const response = await axios.get(BOOK_API_URL, {
       headers: {
-        Authrization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
     return response.data;
