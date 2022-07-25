@@ -16,7 +16,7 @@ function reducer(state: any, action: any) {
   }
   let newState;
   if (action.type === "CHANGE_COLOR") {
-    newState = Object.assign({}, state, { color: "red" });
+    newState = Object.assign({}, state, { color: action.color });
   }
   return newState;
 }
@@ -30,6 +30,8 @@ function App() {
   const Color = () => {
     store.dispatch({ type: "CHANGE_COLOR", color: "red" });
   };
+
+  store.subscribe(Color);
 
   return (
     <Base state={state.color}>
