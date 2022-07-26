@@ -61,6 +61,19 @@ SPA형태는 브라우저에 최초에 한번 페이지 전체를 로드하고,
 - 상태를 읽기 전용으로 취급한다
 - 액션을 하나 추가하는데, 작성 필요한 부분이 많고, 컴포넌트와 스토어를 연결하는 필수적인 부분들이 있어 코드량이 많아질 수 있다
 ```
+- Redux-toolkit
+```
+configureStore: Reducer에서 반환된 새로운 state를 Store라는 객체로 정리해 관리하는곳
+createSlice: reducer 함수와 초기값, action creator 를 포함한 객체
+combineReducers : 초기 상태를 정리해서 초기 상태 트리를 만듬
+```
+![캡처](https://user-images.githubusercontent.com/89058117/180787684-1575f8b4-0bf3-4ce4-8061-212b808eeedc.PNG)
+```
+createSlice으로 state의 초기값들과 action creator와 reducer를 생성해준다.
+모든 slice들을 combineReducers으로 결합시켜서 하나로 모아준다.
+위에서 combineReducers으로 모아준 reducer를 최종적으로 configureStore에서 반환후 사용한다. 
+```
+
 ## MobX
 ```
 - React에 종속적인 라이브러리가 아니고, Redux와 다르게 store에 제한이 없다
