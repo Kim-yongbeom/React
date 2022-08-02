@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
+import Button from "./Button";
 
 const ImageContainer = styled.div`
   z-index: -99;
@@ -14,6 +15,7 @@ const ImageContainer = styled.div`
 
 const InfoContainer = styled.div`
   margin-left: 10%;
+  height: 50vh;
 `;
 
 const Logo = styled.div`
@@ -24,7 +26,7 @@ const Logo = styled.div`
 
 const Title = styled.div`
   margin-top: 10%;
-  font-size: 60px;
+  font-size: 70px;
   font-weight: bold;
 `;
 
@@ -33,7 +35,11 @@ const Content = styled.div`
   font-size: 20px;
 `;
 
-function Image({ url, title, text }) {
+const SliderContent = styled.div`
+  font-size: 30px;
+`;
+
+function Image({ url, title, text, kind }) {
   return (
     <>
       <ImageContainer url={url}>
@@ -55,6 +61,8 @@ function Image({ url, title, text }) {
               </div>
             ))}
           </Content>
+          <Button />
+          <SliderContent>{kind}</SliderContent>
         </InfoContainer>
       </ImageContainer>
     </>

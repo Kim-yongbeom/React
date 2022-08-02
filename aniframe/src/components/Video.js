@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
+import Button from "./Button";
 
 const Base = styled.div`
   position: relative;
@@ -11,6 +12,7 @@ const Base = styled.div`
 
 const InfoContainer = styled.div`
   margin-left: 10%;
+  height: 50vh;
 `;
 
 const Logo = styled.div`
@@ -21,13 +23,17 @@ const Logo = styled.div`
 
 const Title = styled.div`
   margin-top: 10%;
-  font-size: 60px;
+  font-size: 70px;
   font-weight: bold;
 `;
 
 const Content = styled.div`
   margin-top: 4%;
   font-size: 20px;
+`;
+
+const SliderContent = styled.div`
+  font-size: 30px;
 `;
 
 const VideoContainer = styled.iframe`
@@ -41,7 +47,7 @@ const VideoContainer = styled.iframe`
   pointer-events: none;
 `;
 
-function Video({ title, text }) {
+function Video({ title, text, kind }) {
   return (
     <Base>
       <InfoContainer>
@@ -62,6 +68,8 @@ function Video({ title, text }) {
             </div>
           ))}
         </Content>
+        <Button />
+        <SliderContent>{kind}</SliderContent>
       </InfoContainer>
       <VideoContainer
         width="100vw"

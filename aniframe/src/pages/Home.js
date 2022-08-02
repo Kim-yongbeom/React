@@ -20,13 +20,15 @@ function Home() {
         text={
           "LUX brings the world’s most celebrated media artists working \n with the latest audio-visual technologies, including LG OLED, \n to expand the boundaries of \n interactive, immersive art."
         }
+        kind={"PROJECT"}
       />
       <Image
         url={main2}
         title={"Shooting into \n the Corner"}
         text={"Anish Kapoor"}
+        kind={"ARTWORK"}
       />
-      <Image url={main3} title={"Anish Kapoor"} />
+      <Image url={main3} title={"Anish Kapoor"} kind={"ARTIST"} />
     </Container>
   );
 }
