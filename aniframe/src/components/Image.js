@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
-import Button from "./Button";
+import Button from "./Button/Button";
+import Carousel from "./Carousel/Carousel";
 
 const ImageContainer = styled.div`
   z-index: -99;
@@ -31,15 +32,24 @@ const Title = styled.div`
 `;
 
 const Content = styled.div`
-  margin-top: 3%;
+  margin-top: 4%;
   font-size: 20px;
 `;
 
 const SliderContent = styled.div`
+  margin-top: 2%;
   font-size: 30px;
 `;
 
-function Image({ url, title, text, kind }) {
+function Image({
+  url,
+  title,
+  text,
+  kind,
+  dataAWCarousel,
+  dataArtCarousel,
+  buttonPlay,
+}) {
   return (
     <>
       <ImageContainer url={url}>
@@ -61,8 +71,9 @@ function Image({ url, title, text, kind }) {
               </div>
             ))}
           </Content>
-          <Button />
+          <Button buttonPlay={buttonPlay} />
           <SliderContent>{kind}</SliderContent>
+          <Carousel dataAWCarousel={dataAWCarousel || dataArtCarousel} />
         </InfoContainer>
       </ImageContainer>
     </>

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
-import Button from "./Button";
+import Button from "./Button/Button";
+import Carousel from "./Carousel/Carousel";
 
 const Base = styled.div`
   position: relative;
@@ -33,6 +34,7 @@ const Content = styled.div`
 `;
 
 const SliderContent = styled.div`
+  margin-top: 2%;
   font-size: 30px;
 `;
 
@@ -47,7 +49,7 @@ const VideoContainer = styled.iframe`
   pointer-events: none;
 `;
 
-function Video({ title, text, kind }) {
+function Video({ title, text, kind, dataVideoCarousel }) {
   return (
     <Base>
       <InfoContainer>
@@ -70,6 +72,7 @@ function Video({ title, text, kind }) {
         </Content>
         <Button />
         <SliderContent>{kind}</SliderContent>
+        <Carousel dataVideoCarousel={dataVideoCarousel} />
       </InfoContainer>
       <VideoContainer
         width="100vw"

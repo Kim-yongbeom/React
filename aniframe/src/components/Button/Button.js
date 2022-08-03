@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled/macro";
 import { FaPlay } from "react-icons/fa";
 import { GiInfo } from "react-icons/gi";
 
 const Base = styled.div`
-  margin-top: 1%;
+  margin-top: 2%;
 `;
 
 const PlayButton = styled.button`
@@ -14,6 +14,7 @@ const PlayButton = styled.button`
   border: 1px solid white;
   border-radius: 20px;
   color: white;
+  cursor: pointer;
 `;
 
 const InfoButton = styled.button`
@@ -23,6 +24,12 @@ const InfoButton = styled.button`
   background-color: rgba(255, 255, 255, 0.5);
   border: 1px solid white;
   border-radius: 20px;
+  cursor: pointer;
+`;
+
+const WatchVideo = styled.a`
+  text-decoration: none;
+  color: white;
 `;
 
 const Text = styled.span`
@@ -30,12 +37,27 @@ const Text = styled.span`
   font-size: 16px;
 `;
 
-function Button() {
+function Button({ buttonPlay }) {
+  const [play, setPlay] = useState(false);
+
+  const playClick = () => {
+    buttonPlay && setPlay(true);
+  };
+
   return (
     <Base>
-      <PlayButton>
-        <FaPlay />
-        <Text>PLAY</Text>
+      <PlayButton onClick={playClick}>
+        {buttonPlay || play ? (
+          <WatchVideo href="http://localhost:3000/video">
+            <FaPlay />
+            <Text>PLAY</Text>
+          </WatchVideo>
+        ) : (
+          <>
+            <FaPlay />
+            <Text>PLAY</Text>
+          </>
+        )}
       </PlayButton>
       <InfoButton>
         <GiInfo />
