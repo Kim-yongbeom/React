@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "@emotion/styled/macro";
 import { FaPlay } from "react-icons/fa";
 import { GiInfo } from "react-icons/gi";
+import { Link } from "react-router-dom";
+import Modal from "../Modal/Modal";
 
 const Base = styled.div`
   margin-top: 2%;
@@ -27,9 +29,14 @@ const InfoButton = styled.button`
   cursor: pointer;
 `;
 
-const WatchVideo = styled.a`
+const WatchVideo = styled(Link)`
   text-decoration: none;
   color: white;
+`;
+
+const WatchInfo = styled.div`
+  text-decoration: none;
+  color: black;
 `;
 
 const Text = styled.span`
@@ -39,16 +46,21 @@ const Text = styled.span`
 
 function Button({ buttonPlay }) {
   const [play, setPlay] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const playClick = () => {
     buttonPlay && setPlay(true);
+  };
+
+  const infoClick = () => {
+    buttonPlay && setOpenModal(true);
   };
 
   return (
     <Base>
       <PlayButton onClick={playClick}>
         {buttonPlay || play ? (
-          <WatchVideo href="http://localhost:3000/video">
+          <WatchVideo to="/video">
             <FaPlay />
             <Text>PLAY</Text>
           </WatchVideo>
@@ -59,10 +71,26 @@ function Button({ buttonPlay }) {
           </>
         )}
       </PlayButton>
-      <InfoButton>
-        <GiInfo />
-        <Text>INFO</Text>
+      <InfoButton onClick={infoClick}>
+        {openModal ? (
+          <WatchInfo>
+            <GiInfo />
+            <Text>INFO</Text>
+          </WatchInfo>
+        ) : (
+          <>
+            <GiInfo />
+            <Text>INFO</Text>
+          </>
+        )}
       </InfoButton>
+      {openModal && (
+        <Modal
+          buttonPlay={buttonPlay}
+          setOpenModal={setOpenModal}
+          openModal={openModal}
+        />
+      )}
     </Base>
   );
 }
