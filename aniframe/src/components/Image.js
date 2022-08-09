@@ -54,7 +54,7 @@ function Image({
     <>
       <ImageContainer url={url}>
         <InfoContainer>
-          <Logo>LG OLED ART</Logo>
+          <Logo>VIDEO</Logo>
           <Title>
             {(title || "").split("\n").map((txt, index) => (
               <div key={index}>
