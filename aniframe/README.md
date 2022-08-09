@@ -1,5 +1,6 @@
 # VIDEO
-[57e00d51-4621-4a0c-a96c-27d32c73236d.webm](https://user-images.githubusercontent.com/89058117/183683892-635d4ca4-1c04-46ba-8142-20a95b5b9b53.webm)
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/89058117/183685347-1b72d6e9-7ae6-4a16-a168-ef38d2f74b0b.gif)
+
 
 ## 기술
 - React
