@@ -1,4 +1,5 @@
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/89058117/178774734-fdcc9eaf-00b2-4a68-96af-577396e5c341.gif)
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/89058117/183662823-11f81c53-ce7e-4419-95fc-4cfb54568b90.gif)
+
 
 
 ### 설치, 실행
