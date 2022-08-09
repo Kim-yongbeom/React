@@ -5,4 +5,5 @@
 ## 기술
 - React
 - React-Router-Dom
+- emotion
 - 라이브러리(react-slick, react-icons, slick-carousel)
