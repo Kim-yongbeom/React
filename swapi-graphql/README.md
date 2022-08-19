@@ -1,53 +1,43 @@
-SWAPI GraphQL Wrapper
-=====================
+## 스칼라 타입(GQL SCHEMA에서 가장 작은 단위)
+- Int: 부호가 있는 32비트 정수
+- Float: 부호가 있는 부동소수점 값
+- String: UTF-8 문자열
+- Boolean: true/false
+- ID: 고유 식별자 값
+- 커스텀 스칼라 타입을 지정 할 수도 있다.
 
-A wrapper around [SWAPI](http://swapi.dev) built using GraphQL converting it into [this schema](schema.graphql).
+## Non-Null, List
+- [Type] => 리스트 안에 담긴 Type은 null 혹은 특정 값이 존재한다.
+- [Type!] => 리스트 안에 담긴 Type은 null이 될 수 없으며 반드시 특정 값이 존재한다.
+- [Type]! => 리스트 안에 담긴 Type은 null일 수 있으나, 리스트 자체는 null이 될 수 없다.
+- [Type!]! => 리스트 안에 담긴 Type과 리스트 자체도 null이 될 수 없다.
 
-Uses:
-
-* [graphql-js](https://github.com/graphql/graphql-js) - a JavaScript GraphQL runtime.
-* [DataLoader](https://github.com/graphql/dataloader) - for coalescing and caching fetches.
-* [express-graphql](https://github.com/graphql/express-graphql) - to provide HTTP access to GraphQL.
-* [aws-serverless-express](https://github.com/awslabs/aws-serverless-express) - to use `express-graphql` on aws lambda.
-* [GraphiQL](https://github.com/graphql/graphiql) - for easy exploration of this GraphQL server.
-
-Try it out at: http://graphql.org/swapi-graphql
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/graphql/swapi-graphql)
-
-## Getting Started
-
-Install dependencies with
-
-```sh
-npm install
+## 열거형 타입
 ```
+enum Grade{
+    A+
+    A0
+    B+
+    B0
+    C+
+    C0
+    D+
+    D0
+    F
+}
 
-## SWAPI Wrapper
-
-The SWAPI wrapper is in `./swapi`. It can be tested with:
-
-```sh
-yarn test
+type Student{
+    name: String
+    id: ID
+    age: Int
+    grade: Grade
+}
 ```
+- 다음과 같이 스키마를 정의하면 Student 타입의 grade 필드는 항상 A+,A0, ~ , F 값들 중 하나의 값을 가진다.
 
-## Local Server
 
-A local express server is in `./server`. It can be run with:
 
-```sh
-npm start
-```
 
-A GraphiQL instance will be opened at http://localhost:8080/ (or similar; the actual port number will be printed to the console) to explore the API.
 
-# Contributing to this repo
 
-This repository is managed by EasyCLA. Project participants must sign the free ([GraphQL Specification Membership agreement](https://preview-spec-membership.graphql.org) before making a contribution. You only need to do this one time, and it can be signed by [individual contributors](http://individual-spec-membership.graphql.org/) or their [employers](http://corporate-spec-membership.graphql.org/).
 
-To initiate the signature process please open a PR against this repo. The EasyCLA bot will block the merge if we still need a membership agreement from you.
-
-You can find [detailed information here](https://github.com/graphql/graphql-wg/tree/main/membership). If you have issues, please email [operations@graphql.org](mailto:operations@graphql.org).
-
-If your company benefits from GraphQL and you would like to provide essential financial support for the systems and people that power our community, please also consider membership in the [GraphQL Foundation](https://foundation.graphql.org/join).
