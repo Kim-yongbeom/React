@@ -1,7 +1,15 @@
 import React from "react";
+import Nav from "../components/Nav/Nav";
+import Sliders from "../components/Sliders";
 
 function Home() {
-  return <div>Home</div>;
+  return (
+    <>
+      <Nav />
+      <div>Home</div>
+      <Sliders />
+    </>
+  );
 }
 
 export default Home;
