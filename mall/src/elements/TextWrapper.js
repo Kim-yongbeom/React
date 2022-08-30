@@ -1,18 +1,10 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
-import { Text, Grid, Image, Input } from "../elements";
+import Text from "../elements/Text";
+import Grid from "../elements/Grid";
 
 const TextWrapper = (props) => {
-  const {
-    size,
-    prd_name,
-    prd_sum,
-    promotionPer,
-    originPrice,
-    promotion_prd,
-    new_prd,
-    free_ship,
-  } = props;
+  const { size, prd_name, prd_sum, promotionPer, originPrice } = props;
 
   const _price = props.price;
   const price = _price.slice(0, -1);
