@@ -49,7 +49,7 @@ const Product = (props) => {
   const price = _price.slice(0, -1);
 
   return (
-    <React.Fragment>
+    <>
       {props.idx < 4 ? ( //메인화면 배너 하단 상품 4개는 다른 레이아웃으로 표시
         <Grid
           width="275px"
@@ -86,9 +86,9 @@ const Product = (props) => {
       ) : (
         //그 외 제품은 아래 레이아웃으로 통일
         <Grid
-          width="274px"
-          height="465px"
-          margin="10px 5px 50px 0"
+          width="300px"
+          height="450px"
+          margin="50px 5px 50px 50px"
           bg="#f9fafa"
           _onClick={() => {
             document.location.href = `/detail/${props.goodsId}`;
@@ -125,7 +125,7 @@ const Product = (props) => {
           </Grid>
         </Grid>
       )}
-    </React.Fragment>
+    </>
   );
 };
 

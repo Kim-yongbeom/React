@@ -68,6 +68,7 @@ const GridBox = styled.div`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   box-sizing: border-box;
+  cursor: pointer;
   ${(props) => (props.max_width ? `max-width: ${props.max_width};` : "")}
   ${(props) => (props.max_height ? `max-height: ${props.max_height};` : "")}
     ${(props) => (props.padding ? `padding: ${props.padding};` : "")}
