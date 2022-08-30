@@ -1,3 +1,4 @@
+// https://github.com/miniPinetree/CloneCoding---DANOSHOP/tree/main/src
 import React from "react";
 import styled from "@emotion/styled/macro";
 import Text from "../../elements/Text";
