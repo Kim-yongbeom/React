@@ -10,6 +10,7 @@ import Cart from "./pages/Cart";
 import Detail from "./pages/Detail";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Manage from "./pages/Manage";
 import Register from "./pages/Register";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/register" component={Register} />
         <Route exact path="/detail" component={Detail} />
         <Route exact path="/cart" component={Cart} />
+        <Route exact path="/manage" component={Manage} />
       </Switch>
     </Router>
   );
