@@ -6,15 +6,35 @@ import Typography from "@mui/material/Typography";
 import ButtonBase from "@mui/material/ButtonBase";
 import Nav from "../components/Nav/Nav";
 
-const Section = styled("section")({});
-
-const AllProfit = styled("div")({
-  position: "fixed",
-  top: "10%",
-  right: "0",
+const Base = styled("div")({
+  backgroundColor: "#f5f5f5",
   height: "100%",
-  width: "40%",
-  border: "1px solid gray",
+});
+
+const Container = styled("div")({
+  display: "flex",
+  justifyContent: "center",
+});
+
+const Box = styled("div")({
+  display: "inline-block",
+  margin: "30px",
+  width: "250px",
+  height: "150px",
+  backgroundColor: "#fff",
+  boxShadow: "1px 1px 1px 1px #ccc",
+  borderRadius: "10px",
+});
+
+const Title = styled("div")({
+  padding: "10px 30px",
+  textAlign: "center",
+});
+
+const Score = styled("div")({
+  fontSize: "50px",
+  fontWeight: "bold",
+  textAlign: "center",
 });
 
 const Img = styled("img")({
@@ -25,11 +45,44 @@ const Img = styled("img")({
   objectFit: "cover",
 });
 
+const Section = styled("div")({
+  height: "50px",
+  backgroundColor: "#fff",
+  boxShadow: "1px 1px 1px 1px #ccc",
+  borderRadius: "10px",
+  margin: "50px auto",
+  width: "40%",
+  fontSize: "25px",
+  fontWeight: "bold",
+  paddingTop: "15px",
+  textAlign: "center",
+});
+
+const GridContainer = styled("div")({
+  width: "100%",
+  paddingBottom: "20%",
+});
+
 export default function ComplexGrid() {
   return (
-    <>
+    <Base>
       <Nav />
-      <Section>
+      <Container>
+        <Box>
+          <Title>총 상품 수</Title>
+          <Score>600개</Score>
+        </Box>
+        <Box>
+          <Title>수익</Title>
+          <Score>600원</Score>
+        </Box>
+        <Box>
+          <Title>사용자 수</Title>
+          <Score>600명</Score>
+        </Box>
+      </Container>
+      <Section>각 상품 수익</Section>
+      <GridContainer>
         <Paper
           style={{ display: "inline-block" }}
           sx={{
@@ -55,13 +108,13 @@ export default function ComplexGrid() {
               <Grid item xs container direction="column" spacing={2}>
                 <Grid item xs>
                   <Typography gutterBottom variant="subtitle1" component="div">
-                    Standard license
+                    바다
                   </Typography>
                   <Typography variant="body2" gutterBottom>
-                    Full resolution 1920x1080 • JPEG
+                    인포플라
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    ID: 1030114
+                    ID: 20
                   </Typography>
                 </Grid>
                 <Grid item>
@@ -72,14 +125,13 @@ export default function ComplexGrid() {
               </Grid>
               <Grid item>
                 <Typography variant="subtitle1" component="div">
-                  $19.00
+                  50000원
                 </Typography>
               </Grid>
             </Grid>
           </Grid>
         </Paper>
-        <AllProfit>수익</AllProfit>
-      </Section>
-    </>
+      </GridContainer>
+    </Base>
   );
 }
